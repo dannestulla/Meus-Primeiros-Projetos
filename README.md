@@ -1,4 +1,4 @@
-# My Projects - Main Components that I Learned in the respective project</br>
+# My Projects - (Topics that I've Learned)/br>
 
 1-[Guess the number ](https://github.com/Dannestulla/AndroidStudioProjects/blob/main/AdivinheNumero/app/src/main/java/com/example/adivinhenumero/MainActivity.java)(Java, ViewModel) </br> 
 2-[Shop kart](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/ListaDeCompras/app/src/main/java/com/example/listadecompras) (Firebase Auth, ProgressBar, SeekBar)</br>
