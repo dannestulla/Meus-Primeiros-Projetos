@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffe68c"
+    tools:context=".Itens">
+
+    <TextView
+        android:id="@+id/undMaca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="0"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/barraMaça"
+        app:layout_constraintTop_toBottomOf="@+id/barraMaça" />
+
+    <TextView
+        android:id="@+id/undFeijao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:text="0"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/barraFeijao"
+        app:layout_constraintTop_toBottomOf="@+id/barraFeijao" />
+
+    <TextView
+        android:id="@+id/precoFeijao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:text="0"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/barraFeijao"
+        app:layout_constraintTop_toBottomOf="@+id/barraFeijao" />
+
+    <TextView
+        android:id="@+id/precoArroz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:text="0"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/barraArroz"
+        app:layout_constraintTop_toBottomOf="@+id/barraArroz" />
+
+    <TextView
+        android:id="@+id/undArroz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:text="0"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/barraArroz"
+        app:layout_constraintTop_toBottomOf="@+id/barraArroz" />
+
+    <TextView
+        android:id="@+id/textBanana4"
+        android:layout_width="62dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="200dp"
+        android:text="Feijão"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/maça"
+        app:layout_constraintHorizontal_bias="0.443"
+        app:layout_constraintStart_toStartOf="@+id/maça"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textBanana3"
+        android:layout_width="77dp"
+        android:layout_height="29dp"
+        android:text="Arroz"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/feijao"
+        app:layout_constraintEnd_toEndOf="@+id/barraBanana"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="@+id/barraBanana"
+        app:layout_constraintTop_toTopOf="@+id/textBanana4"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <SeekBar
+
+        android:id="@+id/barraBanana"
+        android:layout_width="137dp"
+        android:layout_height="22dp"
+        android:max="30"
+        app:layout_constraintBottom_toTopOf="@+id/textBanana3"
+        app:layout_constraintEnd_toEndOf="@+id/banana"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="@+id/banana"
+        app:layout_constraintTop_toBottomOf="@+id/banana"
+        app:layout_constraintVertical_bias="0.29" />
+
+    <TextView
+        android:id="@+id/precoBanana"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="12dp"
+        android:text="0"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/barraBanana"
+        app:layout_constraintTop_toBottomOf="@+id/barraBanana" />
+
+    <TextView
+        android:id="@+id/undBanana"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:text="0"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/barraBanana"
+        app:layout_constraintTop_toBottomOf="@+id/barraBanana" />
+
+    <SeekBar
+        android:id="@+id/barraMaça"
+        android:layout_width="137dp"
+        android:layout_height="22dp"
+        android:max="30"
+        app:layout_constraintBottom_toTopOf="@+id/textBanana4"
+        app:layout_constraintEnd_toEndOf="@+id/maça"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/maça"
+        app:layout_constraintTop_toBottomOf="@+id/maça"
+        app:layout_constraintVertical_bias="0.29" />
+
+    <SeekBar
+        android:id="@+id/barraFeijao"
+        android:layout_width="137dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="4dp"
+        android:max="30"
+        app:layout_constraintBottom_toTopOf="@+id/textBanana6"
+        app:layout_constraintEnd_toEndOf="@+id/feijao"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/feijao"
+        app:layout_constraintTop_toBottomOf="@+id/feijao"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <SeekBar
+        android:id="@+id/barraArroz"
+        android:layout_width="137dp"
+        android:layout_height="22dp"
+        android:max="30"
+        app:layout_constraintBottom_toTopOf="@+id/textBanana5"
+        app:layout_constraintEnd_toEndOf="@+id/arroz"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/arroz"
+        app:layout_constraintTop_toBottomOf="@+id/arroz"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <SeekBar
+
+        android:id="@+id/barraPeixe"
+        android:layout_width="0dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="50dp"
+        android:max="30"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintStart_toEndOf="@+id/undCarne"
+        app:layout_constraintStart_toStartOf="@+id/peixe"
+        app:layout_constraintTop_toBottomOf="@+id/peixe" />
+
+    <SeekBar
+        android:id="@+id/barraCarne"
+        android:layout_width="134dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="8dp"
+        android:max="30"
+        app:layout_constraintEnd_toEndOf="@+id/carne"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/carne"
+        app:layout_constraintTop_toBottomOf="@+id/carne" />
+
+    <TextView
+        android:id="@+id/undPeixe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="4dp"
+        android:text="0"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/barraPeixe"
+        app:layout_constraintTop_toBottomOf="@+id/barraPeixe" />
+
+    <TextView
+        android:id="@+id/precoCarne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:text="0"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/barraCarne"
+        app:layout_constraintTop_toBottomOf="@+id/barraCarne" />
+
+    <TextView
+        android:id="@+id/undCarne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:text="0"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/barraCarne"
+        app:layout_constraintTop_toBottomOf="@+id/barraCarne" />
+
+    <TextView
+        android:id="@+id/precoPeixe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="0"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/barraPeixe"
+        app:layout_constraintHorizontal_bias="0.825"
+        app:layout_constraintStart_toEndOf="@+id/undPeixe"
+        app:layout_constraintTop_toBottomOf="@+id/barraPeixe" />
+
+    <ImageView
+        android:id="@+id/maça"
+        android:layout_width="141dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="56dp"
+        app:layout_constraintBottom_toBottomOf="@+id/banana"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/banana"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/muda_de_maca_gala_climas_frios_ou_amenos_1m_enxertadas_566_1_20190611093558" />
+
+    <ImageView
+        android:id="@+id/banana"
+        android:layout_width="144dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="461dp"
+        app:layout_constraintBottom_toTopOf="@+id/undCarne"
+        app:layout_constraintEnd_toStartOf="@+id/maça"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/_14476_6_jpg" />
+
+    <ImageView
+        android:id="@+id/arroz"
+        android:layout_width="136dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/barraFeijao"
+        app:layout_constraintEnd_toEndOf="@+id/textBanana3"
+        app:layout_constraintStart_toStartOf="@+id/textBanana3"
+        app:layout_constraintTop_toTopOf="@+id/textBanana3"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/arroz_branco" />
+
+    <ImageView
+        android:id="@+id/feijao"
+        android:layout_width="137dp"
+        android:layout_height="107dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/textBanana4"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="@+id/textBanana4"
+        app:layout_constraintTop_toBottomOf="@+id/textBanana4"
+        app:srcCompat="@drawable/compare_feijoes" />
+
+    <ImageView
+        android:id="@+id/peixe"
+        android:layout_width="133dp"
+        android:layout_height="148dp"
+        app:layout_constraintEnd_toEndOf="@+id/textBanana6"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toStartOf="@+id/textBanana6"
+        app:layout_constraintTop_toBottomOf="@+id/textBanana6"
+        app:srcCompat="@drawable/file_peixe" />
+
+    <ImageView
+        android:id="@+id/carne"
+        android:layout_width="133dp"
+        android:layout_height="149dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/textBanana5"
+        app:layout_constraintHorizontal_bias="0.469"
+        app:layout_constraintStart_toStartOf="@+id/textBanana5"
+        app:layout_constraintTop_toBottomOf="@+id/textBanana5"
+        app:srcCompat="@drawable/aak5oqn_360x233" />
+
+    <TextView
+        android:id="@+id/textBanana6"
+        android:layout_width="61dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="56dp"
+        android:text="Peixe"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/barraFeijao"
+        app:layout_constraintHorizontal_bias="0.565"
+        app:layout_constraintStart_toStartOf="@+id/barraFeijao"
+        app:layout_constraintTop_toBottomOf="@+id/feijao" />
+
+    <TextView
+        android:id="@+id/textBanana5"
+        android:layout_width="52dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="48dp"
+        android:text="Carne"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/barraArroz"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="@+id/barraArroz"
+        app:layout_constraintTop_toBottomOf="@+id/arroz" />
+
+    <TextView
+        android:id="@+id/textBanana"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Banana"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/banana"
+        app:layout_constraintEnd_toEndOf="@+id/banana"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="@+id/banana"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.218" />
+
+    <TextView
+        android:id="@+id/textBanana2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Maça"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/maça"
+        app:layout_constraintEnd_toEndOf="@+id/maça"
+        app:layout_constraintHorizontal_bias="0.546"
+        app:layout_constraintStart_toStartOf="@+id/maça"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.218" />
+
+    <TextView
+        android:id="@+id/precoMaça"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="12dp"
+        android:text="0"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/barraMaça"
+        app:layout_constraintTop_toBottomOf="@+id/barraMaça" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="checkOut"
+        android:text="Checkout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/peixe"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/carne"
+        app:layout_constraintTop_toBottomOf="@+id/precoCarne"
+        app:layout_constraintVertical_bias="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

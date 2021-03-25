@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/gray">
+
+
+
+    <ImageButton
+        android:id="@+id/menos"
+        android:layout_width="69dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="52dp"
+        android:onClick="numeroMenos"
+        android:rotation="-90"
+        app:layout_constraintStart_toStartOf="@+id/textoInicial"
+        app:layout_constraintTop_toBottomOf="@+id/textoInicial"
+        app:srcCompat="@android:drawable/arrow_up_float" />
+
+    <TextView
+        android:id="@+id/textoDois"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="Aperte o botão para começar!"
+        android:textColor="#3F51B5"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/botao"
+        app:layout_constraintStart_toStartOf="@+id/botao"
+        app:layout_constraintTop_toBottomOf="@+id/botao" />
+
+    <TextView
+        android:id="@+id/textoInicial"
+        android:layout_width="271dp"
+        android:layout_height="99dp"
+        android:layout_marginTop="108dp"
+        android:text="Adivinhe o Número (0 a 10)"
+        android:gravity="center"
+        android:textColor="#004881"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/botao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:onClick="cliqueBotao"
+        android:text="Tentar!"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/mais"
+        app:layout_constraintStart_toStartOf="@+id/menos"
+        app:layout_constraintTop_toBottomOf="@+id/numero" />
+
+    <ProgressBar
+        android:id="@+id/barraDeProgresso"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="200dp"
+        android:layout_height="132dp"
+        android:layout_marginTop="32dp"
+        android:progress="0"
+        android:scrollbars="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/textoDois"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="@+id/textoDois"
+
+        app:layout_constraintTop_toBottomOf="@+id/textoDois" />
+
+    <ImageButton
+        android:id="@+id/mais"
+        android:layout_width="69dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="52dp"
+        android:onClick="numeroMais"
+        android:rotation="90"
+        app:layout_constraintEnd_toEndOf="@+id/textoInicial"
+        app:layout_constraintTop_toBottomOf="@+id/textoInicial"
+        app:srcCompat="@android:drawable/arrow_up_float" />
+
+    <TextView
+        android:id="@+id/numero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="0"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toStartOf="@+id/mais"
+        app:layout_constraintStart_toEndOf="@+id/menos"
+        app:layout_constraintTop_toBottomOf="@+id/textoInicial" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

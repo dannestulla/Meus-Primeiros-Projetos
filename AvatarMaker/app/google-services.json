@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "518567003321",
+    "project_id": "avatarmaker-62698",
+    "storage_bucket": "avatarmaker-62698.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:518567003321:android:d81fcb50780ca38fc20768",
+        "android_client_info": {
+          "package_name": "com.example.avatarmaker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "518567003321-lb2uhnenp4cqbva0u7emhg3cma8h6786.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.avatarmaker",
+            "certificate_hash": "5f4b29291ef8da61750352bb570526d1a196cedc"
+          }
+        },
+        {
+          "client_id": "518567003321-f4tmi4nnj5gotf8k5ncqj3uljnvsgrgb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6m10JUtPVcvMQnvskxxwHTOgbtOPSH7o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "518567003321-f4tmi4nnj5gotf8k5ncqj3uljnvsgrgb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
