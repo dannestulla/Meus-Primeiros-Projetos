@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">NoticiasConcursos</string>
+    <string name="button">Button</string>
+    <string name="integer">Integer</string>
+    <string name="string">String</string>
+    <string name="insert">insert</string>
+    <string name="deleteall">deleteall</string>
+    <string name="delete">delete</string>
+
 </resources>

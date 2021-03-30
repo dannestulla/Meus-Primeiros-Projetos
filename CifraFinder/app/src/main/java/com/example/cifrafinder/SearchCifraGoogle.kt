@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModel
 import com.example.cifrafinder.json.SpotifyJson
 import com.example.cifrafinder.views.MainActivity
 import com.example.cifrafinder.views.WebViewCifra
@@ -15,7 +16,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class SearchCifraGoogle : Activity() {
+class SearchCifraGoogle : ViewModel() {
      private lateinit var refresh : View
 
 

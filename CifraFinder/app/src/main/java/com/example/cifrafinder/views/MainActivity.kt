@@ -32,11 +32,13 @@ open class MainActivity : AppCompatActivity() {
         MultiDex.install(this)
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         val view = activityMainBinding.root
+   
         setContentView(view)
         logInSpotify()
         activityMainBinding.button.setOnClickListener { SearchCifraGoogle().getArtistSong() }
         activityMainBinding.imageView.setOnClickListener { logInSpotify() }
         supportActionBar?.hide()
+
         context = applicationContext
     }
 
