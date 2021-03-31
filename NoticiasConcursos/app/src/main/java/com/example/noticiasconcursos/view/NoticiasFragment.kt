@@ -14,7 +14,7 @@ import com.example.noticiasconcursos.recyclerview.Adapter
 import com.example.noticiasconcursos.recyclerview.CardData
 import java.util.ArrayList
 
-open class NoticiasFragment : Fragment(R.layout.fragment_noticias,) {
+open class NoticiasFragment : Fragment(R.layout.fragment_noticias) {
 
     private var mAdapter : Adapter? = null
     private var _binding : FragmentNoticiasBinding? =null

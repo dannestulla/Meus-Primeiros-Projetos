@@ -1,4 +1,4 @@
 include ':spotify-app-remote-release-0.7.1'
 include ':spotify-app-remote'
 include ':app'
-rootProject.name = "NewMusicPlayer"
+rootProject.name = "MyFavouritesTracks"

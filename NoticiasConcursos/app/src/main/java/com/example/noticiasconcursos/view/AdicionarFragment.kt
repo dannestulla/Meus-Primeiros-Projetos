@@ -36,7 +36,6 @@ class AdicionarFragment : Fragment(R.layout.fragment_adicionar) {
         binding.button2.setOnClickListener {deleteAllData()}
         binding.button3.setOnClickListener { delete() }
 
-
     }
     private fun getEntity() {
         entity = Entity(binding.editText1.text.toString().toInt(), binding.editText2.text.toString(), binding.editText3.text.toString(), binding.editText4.text.toString().toInt())
