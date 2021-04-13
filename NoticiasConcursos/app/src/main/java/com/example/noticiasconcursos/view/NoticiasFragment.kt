@@ -1,50 +1,1 @@
-package com.example.noticiasconcursos.view
-
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
-
-import com.example.noticiasconcursos.R
-import com.example.noticiasconcursos.api.RetrofitClient
-import com.example.noticiasconcursos.databinding.FragmentNoticiasBinding
-import com.example.noticiasconcursos.recyclerview.Adapter
-import com.example.noticiasconcursos.recyclerview.CardData
-import java.util.ArrayList
-
-open class NoticiasFragment : Fragment(R.layout.fragment_noticias) {
-
-    private var mAdapter : Adapter? = null
-    private var _binding : FragmentNoticiasBinding? =null
-    private val binding get() = _binding!!
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = FragmentNoticiasBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.buttonGetJson.setOnClickListener { RetrofitClient.createClient() }
-
-    }
-    fun initRecyclerView() {
-        val cardData = ArrayList<CardData>()
-        val titulo1 :String = RetrofitClient.meusTitulos[0]
-        cardData.add(CardData(titulo1,"descricao","3"))
-        binding.recyclerview.apply {
-            layoutManager = LinearLayoutManager(context.applicationContext)
-            mAdapter = Adapter(cardData)
-            adapter = mAdapter
-        }
-
-
-    }
-}
-
-
+package com.example.noticiasconcursos.viewimport android.os.Bundleimport android.util.Logimport android.view.LayoutInflaterimport android.view.Viewimport android.view.ViewGroupimport androidx.core.view.isVisibleimport androidx.fragment.app.Fragmentimport androidx.fragment.app.viewModelsimport androidx.lifecycle.Observerimport androidx.lifecycle.ViewModelimport androidx.recyclerview.widget.LinearLayoutManagerimport com.example.noticiasconcursos.Rimport com.example.noticiasconcursos.data.NoticiasDaoimport com.example.noticiasconcursos.databinding.FragmentNoticiasBindingimport com.example.noticiasconcursos.features.CardDataimport com.example.noticiasconcursos.features.NoticiasAdapterimport com.example.noticiasconcursos.features.NoticiasViewModelimport com.example.noticiasconcursos.util.Resourceimport kotlinx.coroutines.CoroutineScopeimport kotlinx.coroutines.Dispatchersimport kotlinx.coroutines.InternalCoroutinesApiimport kotlinx.coroutines.launchopen class NoticiasFragment : Fragment(R.layout.fragment_noticias) {    private var _binding: FragmentNoticiasBinding? = null    private val binding get() = _binding!!    private val viewModel: NoticiasViewModel by viewModels()    var mNoticiasAdapter = NoticiasAdapter()    override fun onCreateView(        inflater: LayoutInflater,        container: ViewGroup?,        savedInstanceState: Bundle?    ): View {        _binding = FragmentNoticiasBinding.inflate(inflater, container, false)        return binding.root    }    override fun onDestroyView() {        super.onDestroyView()        Log.e("view", "destroyed")        _binding = null    }    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {        super.onViewCreated(view, savedInstanceState)        binding.buttonGetJson.setOnClickListener {            CoroutineScope(Dispatchers.Default).launch {                viewModel.fillRecyclerView()            }            binding.progressBar.visibility = View.VISIBLE        }        binding.button2.setOnClickListener { viewModel.writeToDatabase() } //add to database        binding.button.setOnClickListener { viewModel.deleteAll() } // clean database        binding.getfromdb.setOnClickListener { viewModel.getFromDatabase() }        binding.recyclerview.apply {            adapter = mNoticiasAdapter            layoutManager = LinearLayoutManager(context.applicationContext)        }        val nameObserver = Observer<ArrayList<CardData>> { newData ->            mNoticiasAdapter.submitList(newData)            binding.progressBar.isVisible = newData is Resource.Loading<*> && newData.isNullOrEmpty()        }        viewModel.myLiveData.observe(viewLifecycleOwner, nameObserver)    }}

@@ -1,39 +1,50 @@
-package com.example.mvvmexample.main
+package com.ericdecanini.basicmvvm.activity.main
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import com.example.mvvmexample.R
+import com.example.mvvmexample.databinding.FragmentMainBinding
+import com.example.mvvmexample.main.MainActivityViewModel
 
-class MainActivityFragment : Fragment() {
-    private val viewModel : MainActivityViewModel by activityViewModels()
+
+class MainActivityFragment: Fragment() {
+
+    private var _binding : FragmentMainBinding? =null
+    private val binding get() = _binding!! //bypassando o not null check do Kotlin
+
+    private val viewModel: MainActivityViewModel by activityViewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        _binding = FragmentMainBinding.inflate(inflater, container, false)
+        return binding.root
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+}
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupClickListeners()
         observeDogBreed()
     }
+
     private fun setupClickListeners() {
-        //dogbreed_button.
+        binding.dogbreedButton.setOnClickListener { viewModel.getRandomDogBreed() } //vai adicionar o valor à lista mutável
     }
+
     private fun observeDogBreed() {
-        viewModel.dogBreedLiveData.observe(viewLifecycleOwner, Observer { breed -> dogbreed_textview.text = breed})
-
+        viewModel.dogBreedLiveData.observe(viewLifecycleOwner, Observer { breed -> //vai começar a observer o array MutableLiveData
+            binding.dogbreedTextview.text = breed
+        })
     }
-
-
-
-
 }

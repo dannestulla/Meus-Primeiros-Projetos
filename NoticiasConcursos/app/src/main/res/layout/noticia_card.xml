@@ -2,35 +2,33 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    app:cardElevation="5dp"
+    app:cardCornerRadius="2dp"
+    android:layout_margin="3dp"
+
+    >
     <RelativeLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="92dp"
-            android:layout_height="107dp"
+            android:id="@+id/cardViewImage"
+            android:layout_width="93dp"
+            android:layout_height="69dp"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
             android:layout_marginLeft="100dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="7dp"
             android:id="@+id/cardViewTitulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Título"
-            android:textSize="18sp"
-            android:layout_marginStart="100dp" />
-        <TextView
             android:textSize="16sp"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="40dp"
-            android:id="@+id/cardViewDescricao"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Descrição"
             android:layout_marginStart="100dp" />
+
         <TextView
             android:textSize="16sp"
             android:layout_marginLeft="390dp"

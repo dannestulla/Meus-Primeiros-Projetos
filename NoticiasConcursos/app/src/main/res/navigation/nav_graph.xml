@@ -19,7 +19,7 @@
         android:label="NoticiasFragment" />
     <activity
         android:id="@+id/mainActivity2"
-        android:name="com.example.noticiasconcursos.view.MainActivity"
+        android:name="com.example.noticiasconcursos.view.NoticiasActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
 </navigation>
