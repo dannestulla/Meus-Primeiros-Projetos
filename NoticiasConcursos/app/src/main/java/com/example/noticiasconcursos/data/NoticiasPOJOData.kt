@@ -8,8 +8,13 @@ package com.example.noticiasconcursos.data.api
 class PojoData : ArrayList<TextDataItem>()
 
 data class TextDataItem(
-        val content: Content,
-        var title: Title
+    val content: Content,
+    var title: Title,
+    var guid: Guid
+)
+
+data class Guid(
+    val rendered: String
 )
 
 data class Content(
@@ -23,31 +28,36 @@ data class Title(
 data class Self(
     val href: String
 )
+
 class ImgData : ArrayList<ImgDataItem>()
 
 data class ImgDataItem(
-        val media_details: MediaDetails
-        )
+    val media_details: MediaDetails
+)
 
 data class MediaDetails(
-        val sizes: Sizes,
+    val sizes: Sizes,
 )
 
 data class Sizes(
-        val medium: Medium,
-        val thumbnail: Thumbnail
+    val medium: Medium,
+    val thumbnail: Thumbnail
 )
 
 data class Medium(
-        val source_url: String,
+    val source_url: String,
 )
 
 data class Thumbnail(
-        val source_url: String,
+    val source_url: String,
 )
 
-//Conversor de Json Object para Database Object(Room Entity)
-data class FetchedData(var myTitles: ArrayList<String>, var myDescription: ArrayList<String>, var myImages: ArrayList<String>)
+data class FetchedData(
+    var myTitles: ArrayList<String>,
+    var myDescription: ArrayList<String>,
+    var myImages: ArrayList<String>,
+    var myLinks: ArrayList<String>
+)
 
 
 

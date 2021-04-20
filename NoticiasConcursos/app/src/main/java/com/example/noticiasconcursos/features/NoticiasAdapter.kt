@@ -9,32 +9,40 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.noticiasconcursos.R
-import com.example.noticiasconcursos.view.DescriptionFragment
 import com.example.noticiasconcursos.databinding.NoticiaCardBinding
+import com.example.noticiasconcursos.view.DescriptionFragment
 import com.squareup.picasso.Picasso
-import kotlinx.coroutines.InternalCoroutinesApi
 
 
+class NoticiasAdapter
+    : ListAdapter<CardData, NoticiasAdapter.ViewHolder>(NoticiasComparator()) {
 
-class NoticiasAdapter : ListAdapter<CardData, NoticiasAdapter.ViewHolder>(NoticiasComparator()) {
 
+    class ViewHolder(private val binding: NoticiaCardBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-    class ViewHolder(private val binding: NoticiaCardBinding) : RecyclerView.ViewHolder(binding.root) {
-
-        fun bindView(cardData :CardData) {
+        fun bindView(cardData: CardData) {
             binding.apply {
                 cardViewTitulo.text = cardData.titulo
-                //cardViewDescricao.text = cardData.descricao
-                Picasso.get().load(cardData.image).into(cardViewImage);
+                Picasso.get().load(cardData.image).into(cardViewImage)
             }
         }
-        //Click Listener para cada opção
+
         init {
             itemView.setOnClickListener { v: View ->
                 NoticiasViewModel.position = adapterPosition
                 Log.e("clicked", adapterPosition.toString())
                 val activity = v.context as AppCompatActivity
-                val newFragment = activity.supportFragmentManager.beginTransaction().replace(R.id.fragment_container, DescriptionFragment()).addToBackStack(null)
+
+                val newFragment = activity.supportFragmentManager
+                    .beginTransaction()
+                    .setCustomAnimations(
+                        R.anim.slide_in_left,
+                        R.anim.slide_in_right,
+                        R.anim.slide_in_left,
+                        R.anim.slide_in_right)
+                    .replace(R.id.fragment_container, DescriptionFragment())
+                .addToBackStack(null)
                 newFragment.commit()
             }
         }
@@ -47,7 +55,6 @@ class NoticiasAdapter : ListAdapter<CardData, NoticiasAdapter.ViewHolder>(Notici
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = getItem(position)
-
         if (currentItem != null) {
             holder.bindView(currentItem)
         }
@@ -56,15 +63,15 @@ class NoticiasAdapter : ListAdapter<CardData, NoticiasAdapter.ViewHolder>(Notici
 
     class NoticiasComparator : DiffUtil.ItemCallback<CardData>() {
         override fun areItemsTheSame(oldItem: CardData, newItem: CardData) =
-                oldItem.titulo == newItem.titulo
+            oldItem.titulo == newItem.titulo
 
 
         override fun areContentsTheSame(oldItem: CardData, newItem: CardData) =
-                oldItem == newItem
+            oldItem == newItem
     }
 }
 
-data class CardData(var titulo : String, var descricao : String, var image : String)
+data class CardData(var titulo: String, var descricao: String, var image: String)
 
 
 

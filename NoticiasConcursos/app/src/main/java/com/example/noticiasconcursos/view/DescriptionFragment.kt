@@ -4,52 +4,50 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebViewClient
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.noticiasconcursos.R
-import com.example.noticiasconcursos.databinding.FragmentDescriptionBinding
-import com.example.noticiasconcursos.features.NoticiasViewModel.Companion.cardData
-import com.example.noticiasconcursos.features.NoticiasViewModel.Companion.myDescription
-import com.example.noticiasconcursos.features.NoticiasViewModel.Companion.myImages
+import com.example.noticiasconcursos.databinding.FragmentWebviewBinding
+import com.example.noticiasconcursos.features.NoticiasViewModel
+import com.example.noticiasconcursos.features.NoticiasViewModel.Companion.myLinks
 import com.example.noticiasconcursos.features.NoticiasViewModel.Companion.position
-import com.example.noticiasconcursos.features.NoticiasViewModel.Companion.result
-import com.squareup.picasso.Picasso
-import org.jsoup.Jsoup
-import org.jsoup.nodes.Document
 
 
-class DescriptionFragment : Fragment(R.layout.fragment_description) {
-
-    private var _binding : FragmentDescriptionBinding? =null
+class DescriptionFragment : Fragment(R.layout.fragment_webview) {
+    private var _binding: FragmentWebviewBinding? = null
     private val binding get() = _binding!!
-    lateinit var image : String
-    lateinit var titulo : String
+    lateinit var viewModel: NoticiasViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        _binding = FragmentDescriptionBinding.inflate(inflater, container, false)
 
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentWebviewBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //aplicando imagem
-        if (position == 0 ) {image = cardData[2].toString()}
-        else {image = cardData[position!!*3+2].toString()}
-        Picasso.get().load(image).into(binding.imageView)
+        viewModel = (activity as NoticiasActivity).viewModel
 
-        //aplicando titulo
-        if (position == 0) {titulo = cardData[0].toString()}
-        else {titulo = cardData[position!!*3].toString()}
-        binding.textViewtitulo.text = titulo
-
-        val html = myDescription[position!!]
-        val doc: Document = Jsoup.parse(html)
-        val text: String = doc.body().text() // "An example link"
-        binding.textViewDescription.text = text
-
-
+        if (viewModel.isNetworkAvaliable) {
+            binding.webView.apply {
+                webViewClient = WebViewClient()
+                loadUrl(myLinks[position!!])
+            }
+        } else {
+            Toast.makeText(context,"Conexão com a internet necessária para carregar a notícia", Toast.LENGTH_LONG).show()
+            /* Picasso.get().load(myImages[position!!]).into(binding.imageView)
+            binding.textViewtitulo.text = myTitles[position!!]
+            val html = myDescription[position!!]
+            val doc: Document = Jsoup.parse(html)
+            val parsedMyDescription: String = doc.body().text() // "An example link"
+            binding.textViewDescription.text = parsedMyDescription */
+        }
     }
+
 
 
 

@@ -1,22 +1,26 @@
 package com.example.noticiasconcursos.util
 import kotlinx.coroutines.flow.*
 
-//Essa função é um template, a mesma para vários casos
-inline fun <ResultType, RequestType>networkBoundResource(
-    crossinline query: () -> Flow<ResultType>,
-    crossinline fetch: suspend () -> RequestType,
-    crossinline saveFetchResult: suspend (RequestType) -> Unit,
-    crossinline shouldFetch: (ResultType) -> Boolean = { true }
-) = flow {
-    val data = query().first()
+inline fun <ResultType, RequestType> networkBoundResource(
+    //declarado como Flow para ficar observando a db
+    crossinline query: () -> Flow<ResultType>,                       //consulta a DB
+    crossinline shouldFetch: (ResultType) -> Boolean = { true },     //compara os dados online com os da DB
+    crossinline fetch: suspend () -> RequestType,                    //busca na API os dados necessários
+    crossinline saveFetchResult: suspend (RequestType) -> Unit,      //salva os dados na db
 
-    val flow = if (shouldFetch(data)) {
-        emit(Resource.Loading(data))
-        try {
-        saveFetchResult(fetch())
+) = flow {
+    val lastValue = query().first()
+
+    val flow = if (shouldFetch(lastValue)) {
+        emit(Resource.Loading(lastValue))
+    try {                                                           //se estiver offline, nao vai buscar
+        saveFetchResult(fetch())                                    //salva os dados
+            query().map { Resource.Sucess(it) }                     //Trocando o tipo da lista para do tipo query (Flow)
+        } catch (tr: Throwable) {
+            query().map { Resource.Error(tr, it) }
+        }
+    } else {
         query().map { Resource.Sucess(it) }
-    } catch (tr : Throwable) {
-        query().map { Resource.Error(tr,it) }
-    }} else { query().map {Resource.Sucess(it) }}
+    }
     emitAll(flow)
 }
