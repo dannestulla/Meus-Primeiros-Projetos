@@ -77,6 +77,7 @@ class NoticiasViewModel(
         }
         }
         myLiveData.postValue(cardData)}
+
     fun writeToDatabase() {
         i = 0
         results = minOf(fetchedData.myTitles.size, fetchedData.myImages.size, fetchedData.myDescription.size)
@@ -109,7 +110,6 @@ class NoticiasViewModel(
         myLiveData.postValue(cardData) }
 
     suspend fun transformAPIdata(): FetchedData {
-
             val response = noticiasRepository.getTextData()
             if (response.isSuccessful) {
                 i = 0
@@ -131,7 +131,8 @@ class NoticiasViewModel(
                 }
             }
         fetchedData = FetchedData(myTitles, myDescription, myImages, myLinks)
-        return FetchedData(myTitles, myDescription, myImages, myLinks)
+
+        return fetchedData
     }
 
     fun checkStateStatus() : String{

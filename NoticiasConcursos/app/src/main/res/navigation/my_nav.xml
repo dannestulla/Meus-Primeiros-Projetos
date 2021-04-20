@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/noticiasFragment">
+
+    <fragment
+        android:id="@+id/noticiasFragment"
+        android:name="com.example.noticiasconcursos.view.NoticiasFragment"
+        android:label="fragment_noticias"
+        tools:layout="@layout/fragment_noticias">
+        <action
+            android:id="@+id/action_noticiasFragment_to_descriptionFragment"
+            app:destination="@id/descriptionFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/descriptionFragment"
+        android:name="com.example.noticiasconcursos.view.DescriptionFragment"
+        android:label="fragment_webview"
+        tools:layout="@layout/fragment_webview" >
+        <action
+            android:id="@+id/action_descriptionFragment_to_noticiasFragment2"
+            app:destination="@id/noticiasFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"/>
+    </fragment>
+</navigation>

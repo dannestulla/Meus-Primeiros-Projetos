@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -20,6 +22,8 @@ class NoticiasAdapter
 
     class ViewHolder(private val binding: NoticiaCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        lateinit var navController : NavController
+
 
         fun bindView(cardData: CardData) {
             binding.apply {
@@ -32,9 +36,12 @@ class NoticiasAdapter
             itemView.setOnClickListener { v: View ->
                 NoticiasViewModel.position = adapterPosition
                 Log.e("clicked", adapterPosition.toString())
-                val activity = v.context as AppCompatActivity
+                //val activity = v.context as AppCompatActivity
+                navController = Navigation.findNavController(v)//pega a referencia pro navController pela view, que é a inflada no layout atual
 
-                val newFragment = activity.supportFragmentManager
+                navController.navigate(R.id.action_noticiasFragment_to_descriptionFragment)
+
+                /*val newFragment = activity.supportFragmentManager
                     .beginTransaction()
                     .setCustomAnimations(
                         R.anim.slide_in_left,
@@ -43,7 +50,7 @@ class NoticiasAdapter
                         R.anim.slide_in_right)
                     .replace(R.id.fragment_container, DescriptionFragment())
                 .addToBackStack(null)
-                newFragment.commit()
+                newFragment.commit()*/
             }
         }
     }

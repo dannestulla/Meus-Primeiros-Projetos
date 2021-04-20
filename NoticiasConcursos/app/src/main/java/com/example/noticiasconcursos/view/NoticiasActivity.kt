@@ -28,16 +28,16 @@ class NoticiasActivity : AppCompatActivity() {
         dbCreated.NoticiasDao()
 
         val repository = NoticiasRepository(dbCreated)
-        val noticiasFragment = NoticiasFragment(repository)
+        //val noticiasFragment = NoticiasFragment(repository)
 
 
         val viewModelProviderFactory = NoticiasViewModelProviderFactory(application, repository)
         viewModel = ViewModelProvider(this, viewModelProviderFactory).get(NoticiasViewModel::class.java)
 
-        changeFragment(noticiasFragment)
+        //changeFragment(noticiasFragment)
     }
 
-    fun changeFragment(fragment: Fragment) {
+    /*fun changeFragment(fragment: Fragment) {
         supportFragmentManager.commit {
             setCustomAnimations(
             R.anim.slide_in_left,
@@ -47,7 +47,7 @@ class NoticiasActivity : AppCompatActivity() {
                 replace(R.id.fragment_container, fragment)
                 addToBackStack(null)
             }
-    }
+    }*/
 
 
 }
