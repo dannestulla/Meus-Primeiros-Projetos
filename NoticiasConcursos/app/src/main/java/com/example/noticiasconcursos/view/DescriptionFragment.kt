@@ -1,11 +1,13 @@
 package com.example.noticiasconcursos.view
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebViewClient
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.example.noticiasconcursos.R
 import com.example.noticiasconcursos.databinding.FragmentWebviewBinding
@@ -28,6 +30,7 @@ class DescriptionFragment : Fragment(R.layout.fragment_webview) {
         return binding.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as NoticiasActivity).viewModel
@@ -35,16 +38,13 @@ class DescriptionFragment : Fragment(R.layout.fragment_webview) {
         if (viewModel.isNetworkAvaliable) {
             binding.webView.apply {
                 webViewClient = WebViewClient()
+                settings.javaScriptEnabled = true
+                webChromeClient
                 loadUrl(myLinks[position!!])
             }
         } else {
             Toast.makeText(context,"Conexão com a internet necessária para carregar a notícia", Toast.LENGTH_LONG).show()
-            /* Picasso.get().load(myImages[position!!]).into(binding.imageView)
-            binding.textViewtitulo.text = myTitles[position!!]
-            val html = myDescription[position!!]
-            val doc: Document = Jsoup.parse(html)
-            val parsedMyDescription: String = doc.body().text() // "An example link"
-            binding.textViewDescription.text = parsedMyDescription */
+
         }
     }
 

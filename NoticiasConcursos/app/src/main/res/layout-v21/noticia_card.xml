@@ -6,16 +6,11 @@
     app:cardElevation="5dp"
     app:cardCornerRadius="2dp"
     android:layout_margin="2dp"
-    android:backgroundTint="#E4EBF4"
-
-
-    >
+    android:backgroundTint="#E4EBF4">
 
     <RelativeLayout
-
         android:layout_width="match_parent"
-        android:layout_height="101dp"
-        >
+        android:layout_height="101dp">
         <ImageView
             android:id="@+id/cardViewImage"
             android:layout_width="118dp"
