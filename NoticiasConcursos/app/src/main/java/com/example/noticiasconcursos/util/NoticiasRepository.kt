@@ -1,12 +1,11 @@
 package com.example.noticiasconcursos.util
 
 import android.app.Application
-import com.example.noticiasconcursos.data.NoticiasDatabase
-import com.example.noticiasconcursos.data.NoticiasEntity
-import com.example.noticiasconcursos.data.ObjectsInstances
-import com.example.noticiasconcursos.data.api.FetchedData
-import com.example.noticiasconcursos.data.api.ImgDataItem
-import com.example.noticiasconcursos.data.api.TextDataItem
+import com.example.noticiasconcursos.data.database.NoticiasDatabase
+import com.example.noticiasconcursos.data.database.NoticiasEntity
+import com.example.noticiasconcursos.data.retrofit.ObjectsInstances
+import com.example.noticiasconcursos.data.retrofit.ImgDataItem
+import com.example.noticiasconcursos.data.retrofit.TextDataItem
 import retrofit2.Response
 
 class NoticiasRepository(

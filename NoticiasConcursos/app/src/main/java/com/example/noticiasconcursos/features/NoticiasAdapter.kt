@@ -41,16 +41,6 @@ class NoticiasAdapter
 
                 navController.navigate(R.id.action_noticiasFragment_to_descriptionFragment)
 
-                /*val newFragment = activity.supportFragmentManager
-                    .beginTransaction()
-                    .setCustomAnimations(
-                        R.anim.slide_in_left,
-                        R.anim.slide_in_right,
-                        R.anim.slide_in_left,
-                        R.anim.slide_in_right)
-                    .replace(R.id.fragment_container, DescriptionFragment())
-                .addToBackStack(null)
-                newFragment.commit()*/
             }
         }
     }

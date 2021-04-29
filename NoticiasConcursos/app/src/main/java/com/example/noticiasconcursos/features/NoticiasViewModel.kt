@@ -4,8 +4,8 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import com.example.noticiasconcursos.data.NoticiasEntity
-import com.example.noticiasconcursos.data.api.FetchedData
+import com.example.noticiasconcursos.data.database.NoticiasEntity
+import com.example.noticiasconcursos.data.retrofit.FetchedData
 import com.example.noticiasconcursos.util.NoticiasRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startScreenFragment">
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.minhasreceitas.fragments.RegisterFragment"
+        android:label="RegisterFragment"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_registerFragment_to_cuisineFragment"
+            app:destination="@id/cuisineFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"/>
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            />
+    </fragment>
+      <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.minhasreceitas.fragments.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+          <action
+              android:id="@+id/action_loginFragment_to_cuisineFragment"
+              app:destination="@id/cuisineFragment"
+              app:enterAnim="@anim/from_right"
+              app:exitAnim="@anim/to_left"/>
+          <action
+              android:id="@+id/action_loginFragment_to_registerFragment"
+              app:destination="@id/registerFragment" />
+      </fragment>
+    <fragment
+        android:id="@+id/startScreenFragment"
+        android:name="com.example.minhasreceitas.fragments.StartScreenFragment"
+        android:label="fragment_start_screen"
+        tools:layout="@layout/fragment_start_screen" >
+        <action
+            android:id="@+id/action_startScreenFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_startScreenFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+        <fragment
+        android:id="@+id/cuisineFragment"
+        android:name="com.example.minhasreceitas.fragments.CuisineFragment"
+        android:label="fragment_cuisine"
+        tools:layout="@layout/fragment_cuisine" >
+          <action
+              android:id="@+id/action_cuisineFragment_to_recipeFragment"
+              app:destination="@id/recipeFragment"
+              app:enterAnim="@anim/from_right"
+              app:exitAnim="@anim/to_left"/>
+           <action
+               android:id="@+id/action_cuisineFragment_to_loginFragment"
+               app:destination="@id/loginFragment"
+               app:enterAnim="@anim/from_left"
+               app:exitAnim="@anim/to_right"/>
+       </fragment>
+    <fragment
+        android:id="@+id/recipeFragment"
+        android:name="com.example.minhasreceitas.fragments.RecipesFragment"
+        android:label="fragment_recipe"
+        tools:layout="@layout/fragment_recipe" >
+        <action
+            android:id="@+id/action_recipeFragment_to_descriptionFragment"
+            app:destination="@id/descriptionFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"/>
+        <action
+            android:id="@+id/action_recipeFragment_to_cuisineFragment"
+            app:destination="@id/cuisineFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"/>
+    </fragment>
+      <fragment
+        android:id="@+id/descriptionFragment"
+        android:name="com.example.minhasreceitas.fragments.DescriptionFragment"
+        android:label="fragment_description"
+        tools:layout="@layout/fragment_description" >
+          <action
+              android:id="@+id/action_descriptionFragment_to_mapsFragment"
+              app:destination="@id/mapsFragment"
+              app:enterAnim="@anim/from_right"
+              app:exitAnim="@anim/to_left"/>
+          <action
+              android:id="@+id/action_descriptionFragment_to_recipeFragment"
+              app:destination="@id/recipeFragment"
+              app:enterAnim="@anim/from_left"
+              app:exitAnim="@anim/to_right"/>
+      </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.example.minhasreceitas.fragments.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" >
+        <action
+            android:id="@+id/action_mapsFragment_to_descriptionFragment"
+            app:destination="@id/descriptionFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"/>
+    </fragment>
+</navigation>
