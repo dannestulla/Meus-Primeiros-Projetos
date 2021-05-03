@@ -1,18 +1,24 @@
 ## My Projects
 
-Here I list all my projects, going from the simplest to the more complex ones, represented by a star. The topics learned in each project are displayed next to it's name.  
+####Here I list all my projects, going from the complex to the simplest ones, represented by a star. The topics learned in each project are displayed next to it's name.  
 
-1- [**Guess the number** ](https://github.com/Dannestulla/AndroidStudioProjects/blob/main/AdivinheNumero/app/src/main/java/com/example/adivinhenumero/MainActivity.java)(Java) ⭐
+- [**MyRecipes**](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/MinhasReceitas) (MVVM) ⭐⭐⭐</br>
+_**In Development** Serches recipes from multiple cuisines and shows a video how to make it. You can also order it from a nerby restaurant_
 
-2- [**Shop kart**](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/ListaDeCompras/app/src/main/java/com/example/listadecompras) (Firebase Auth, View Components) ⭐
+- **[NoticiasConcursos ](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/NoticiasConcursos/app/src/main/java/com/example/noticiasconcursos)**(Room, MVVM, ViewModelFactory)  ⭐⭐⭐</br>
+_Mobile app that is a conversion of a WordPress news page_
 
-3- **[AvatarMaker ](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/AvatarMaker/app/src/main/java/com/example/avatarmaker)** (Firebase Firestore Database) ⭐⭐
+- **[Cifra Finder](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/CifraFinder/app/src/main/java/com/example/cifrafinder)** (Google Custom Search API) ⭐</br>
+_Searches the guitar tab of your current song playing at Spotify_
 
-4- [**My Favourites Tracks**  ](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/MyFavouritesTracks)(Retrofit, Spotify API, RecyclerView) ⭐⭐
+- [**My Favourites Tracks**  ](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/MyFavouritesTracks)(Retrofit, Spotify API, RecyclerView) ⭐⭐</br>
+_Saves your songs liked at Spotify into a list where you can preview each song_
 
-5- **[Cifra Finder](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/CifraFinder/app/src/main/java/com/example/cifrafinder)** (Google Custom Search API) ⭐
+- **[AvatarMaker ](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/AvatarMaker/app/src/main/java/com/example/avatarmaker)** (Firebase Firestore Database) ⭐⭐</br>
+_Made to connect Designers and users. Users can post art requests and designers can see the list and get the order_
 
-6- **[NoticiasConcursos ](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/NoticiasConcursos/app/src/main/java/com/example/noticiasconcursos)**(Room, MVVM, ViewModelFactory)  ⭐⭐⭐
+- [**Shop kart**](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/ListaDeCompras/app/src/main/java/com/example/listadecompras) (Firebase Auth, View Components) ⭐ </br>
+_Create your own shopping cart list and sent it to your email_
 
-7- [**MyRecipes**](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/MinhasReceitas) (MVVM) ⭐⭐⭐
-
+- [**Guess the number** ](https://github.com/Dannestulla/AndroidStudioProjects/blob/main/AdivinheNumero/app/src/main/java/com/example/adivinhenumero/MainActivity.java)(Java) ⭐ </br>
+_Game that you need to guess the right rumber_
