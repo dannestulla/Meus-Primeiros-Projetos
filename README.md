@@ -1,6 +1,6 @@
 ## My Projects
 
-Here I list all my projects, going from the simplest to the more complex ones represented by a star. The topics learned in each project are displayed next to it's name.  
+Here I list all my projects, going from the simplest to the more complex ones, represented by a star. The topics learned in each project are displayed next to it's name.  
 
 1- [**Guess the number** ](https://github.com/Dannestulla/AndroidStudioProjects/blob/main/AdivinheNumero/app/src/main/java/com/example/adivinhenumero/MainActivity.java)(Java) ⭐
 
