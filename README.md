@@ -1,6 +1,6 @@
 # My Android Studio Projects
 
-### All my projects going from the complex to the simplest ones, represented by a star. The topics learned in each project are displayed next to it's name. To do them I used Android Studio, used Java at the beggining and afterwards, migrated to Kotlin 
+#### All my projects going from the complex to the simplest ones, represented by a star. The topics learned in each project are displayed next to it's name. To do them I used Android Studio, used Java at the beggining and afterwards migrated to Kotlin 
 
 - [**MyRecipes**](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/MinhasReceitas) (MVVM) ⭐⭐⭐</br>
 _**In Development** Serches recipes from multiple cuisines and shows a video how to make it. You can also order it from a nerby restaurant_
