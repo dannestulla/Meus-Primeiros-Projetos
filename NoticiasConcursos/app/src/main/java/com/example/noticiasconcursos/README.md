@@ -14,7 +14,7 @@ This Android application converts a **WordPress Website** to a mobile version us
 
 ### Preview
 
-<video src="C:\Users\dannn\OneDrive\Área de Trabalho\vidma_recorder_03052021_133115.mp4"></video>
+ ![ Alt text](https://github.com/Dannestulla/AndroidStudioProjects/blob/main/NoticiasConcursos/app/src/main/java/com/example/noticiasconcursos/previewNoticias.gif)
 
 ### Download Apk Link 
 
