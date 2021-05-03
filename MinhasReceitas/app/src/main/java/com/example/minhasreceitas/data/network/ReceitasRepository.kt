@@ -1,31 +1,56 @@
 package com.example.minhasreceitas.data.network
 
+import android.util.Log
 import com.example.minhasreceitas.data.database.ReceitasDao
 import com.example.minhasreceitas.data.database.ReceitasDatabase
 import retrofit2.Response
 import javax.inject.Inject
 
 class ReceitasRepository @Inject constructor(
-    private val api : APIrequests,
-    db : ReceitasDatabase,
-){
+        private val api: APIrequests,
+        db: ReceitasDatabase,
+) {
     private val database: ReceitasDao = db.receitasDao()
-    //API R
-    suspend fun getSpecificCuisine(type : String) : Response<RecipesList> {
-        return api.getSpecificCuisine(type)
+
+    //API
+    suspend fun getSpecificCuisine(s: String): Response<RecipesList> {
+        Log.d("Repository", "API: Getting Specific Cuisine")
+        return api.getSpecificCuisineAPI(s)
     }
-    suspend fun getRecipe(recipe : String) : Response<DescriptionRecipe> {
-        return api.getDescriptionRecipe(recipe)
+
+    suspend fun getRecipe(s: String): Response<DescriptionRecipe> {
+        Log.d("Repository", "API: Getting Recipe Description")
+        return api.getDescriptionRecipe(s)
     }
-    //DB
-    suspend fun saveToDB(mealList: ArrayList<Meal>) {
-        database.insertRecipeList(mealList)
+
+    //DATABASE
+    suspend fun saveToDB(al: ArrayList<Meal>) {
+        Log.d("Repository", "DB: Saving to DB")
+        database.saveToDB(al)
     }
-    suspend fun findId(idMeal : ArrayList<Meal>) {
-        database.findId(idMeal)
+
+    fun deleteRow(s: String) {
+        Log.d("Repository", "DB: Deleting Row $s")
+        database.deleteRow(s)
     }
-    suspend fun insertNewData(newData : ArrayList<Meal>) {
-        database.insertNewData(newData)
+
+    suspend fun findId(id: String): List<Meal> {
+        Log.d("Repository", "DB: Finding id $id")
+
+        return database.findId(id)
     }
+
+    suspend fun loadMeal(s: String): List<Meal> {
+        Log.d("Repository", "DB: Loading Meal $s")
+
+        return database.loadMeal(s)
+    }
+
+    suspend fun loadCuisineDB(s: String): List<Meal> {
+        Log.d("Repository", "DB: Loading cuisine $s")
+
+        return database.loadCuisineDB(s)
+    }
+
 
 }

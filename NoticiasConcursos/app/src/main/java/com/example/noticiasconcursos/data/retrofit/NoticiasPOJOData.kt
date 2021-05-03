@@ -10,7 +10,8 @@ class PojoData : ArrayList<TextDataItem>()
 data class TextDataItem(
     val content: Content,
     var title: Title,
-    var guid: Guid
+    var guid: Guid,
+    var date: String
 )
 
 data class Guid(
@@ -56,7 +57,8 @@ data class FetchedData(
     var myTitles: ArrayList<String>,
     var myDescription: ArrayList<String>,
     var myImages: ArrayList<String>,
-    var myLinks: ArrayList<String>
+    var myLinks: ArrayList<String>,
+    var myDate: ArrayList<String>
 )
 
 

@@ -24,6 +24,10 @@ interface NoticiasDao {
     @Query("SELECT link FROM noticias_table")
     fun getLinks(): List<String>
 
+    @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
+    @Query("SELECT date FROM noticias_table")
+    fun getDate(): List<String>
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertData(noticiasEntity: NoticiasEntity)
 

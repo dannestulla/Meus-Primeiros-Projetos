@@ -8,5 +8,6 @@ data class NoticiasEntity(
     @PrimaryKey val title: String,
     val description: String,
     val image_url: String,
-    val link: String
+    val link: String,
+    val date: String
 )

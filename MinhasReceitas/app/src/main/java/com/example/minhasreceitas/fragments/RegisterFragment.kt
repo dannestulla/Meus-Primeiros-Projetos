@@ -16,7 +16,6 @@ import com.example.minhasreceitas.databinding.FragmentStartScreenBinding
 class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
-    val viewModel by activityViewModels<ReceitasViewModel>()
 
 
     override fun onCreateView(

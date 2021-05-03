@@ -29,6 +29,8 @@ class NoticiasAdapter
             binding.apply {
                 cardViewTitulo.text = cardData.titulo
                 Picasso.get().load(cardData.image).into(cardViewImage)
+                cardViewDate?.text = cardData.date
+
             }
         }
 
@@ -68,7 +70,7 @@ class NoticiasAdapter
     }
 }
 
-data class CardData(var titulo: String, var descricao: String, var image: String)
+data class CardData(var titulo: String, var descricao: String, var image: String, var date: String)
 
 
 

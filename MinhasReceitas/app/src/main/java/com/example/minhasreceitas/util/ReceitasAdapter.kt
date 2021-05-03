@@ -40,7 +40,7 @@ class ReceitasAdapter :
             }
         init {
             itemView.setOnClickListener { v:View ->
-                ReceitasViewModel.mealName.add(ReceitasViewModel.mealsList[adapterPosition].strMeal)
+                ReceitasViewModel.currentMeal.add(ReceitasViewModel.mealsList[adapterPosition])
                 val navController = Navigation.findNavController(v)
                 navController.navigate(R.id.action_recipeFragment_to_descriptionFragment)
 

@@ -29,8 +29,8 @@ class NoticiasRepository(
     fun deleteAllDb() {
         noticiasDao.deleteAll()
     }
-    fun getAllDb() {
-        noticiasDao.getAll()
+    fun getDate() :List<String>{
+        return noticiasDao.getDate()
     }
     fun getTitlesDb() :List<String> {
         return noticiasDao.getTitles()

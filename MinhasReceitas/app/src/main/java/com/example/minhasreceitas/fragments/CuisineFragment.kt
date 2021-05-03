@@ -31,35 +31,34 @@ class CuisineFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val navController = Navigation.findNavController(view)
-        val receitasAdapter = ReceitasAdapter()
 
 
         //deve ter alguma forma de fazer isso sem tanta repetição :/
 
         binding.apply {
             imageView3.setOnClickListener {
-                viewModel.getCuisine("japanese")
+                viewModel.databaseOrAPI("japanese")
                 navController.navigate(R.id.action_cuisineFragment_to_recipeFragment) }
             imageView4.setOnClickListener {
-                viewModel.getCuisine("italian")
+                viewModel.databaseOrAPI("italian")
                 navController.navigate(R.id.action_cuisineFragment_to_recipeFragment) }
             imageView5.setOnClickListener {
-                viewModel.getCuisine("vietnamese")
+                viewModel.databaseOrAPI("vietnamese")
                 navController.navigate(R.id.action_cuisineFragment_to_recipeFragment) }
             imageView6.setOnClickListener {
-                viewModel.getCuisine("american")
+                viewModel.databaseOrAPI("american")
                 navController.navigate(R.id.action_cuisineFragment_to_recipeFragment) }
             imageView7.setOnClickListener {
-                viewModel.getCuisine("arabic")
+                viewModel.databaseOrAPI("arabic")
                 navController.navigate(R.id.action_cuisineFragment_to_recipeFragment) }
             imageView8.setOnClickListener {
-                viewModel.getCuisine("chinese")
+                viewModel.databaseOrAPI("chinese")
                 navController.navigate(R.id.action_cuisineFragment_to_recipeFragment) }
             imageView9.setOnClickListener {
-                viewModel.getCuisine("healthy")
+                viewModel.databaseOrAPI("healthy")
                 navController.navigate(R.id.action_cuisineFragment_to_recipeFragment) }
             imageView10.setOnClickListener {
-                viewModel.getCuisine("vegan")
+                viewModel.databaseOrAPI("vegan")
                 navController.navigate(R.id.action_cuisineFragment_to_recipeFragment) }
             imageView11.setOnClickListener {
                 navController.navigate(R.id.action_cuisineFragment_to_loginFragment)

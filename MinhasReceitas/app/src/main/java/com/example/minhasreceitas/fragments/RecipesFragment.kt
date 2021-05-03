@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView.HORIZONTAL
 import com.example.minhasreceitas.R
 import com.example.minhasreceitas.ReceitasViewModel
 import com.example.minhasreceitas.ReceitasViewModel.Companion.mealsList
+import com.example.minhasreceitas.data.network.Meal
 import com.example.minhasreceitas.databinding.FragmentRecipeBinding
 import com.example.minhasreceitas.util.ReceitasAdapter
 
@@ -39,11 +40,12 @@ class RecipesFragment : Fragment() {
             layoutManager = LinearLayoutManager(context, HORIZONTAL,false)
 
         }
-        viewModel.recyclerViewLiveData.observe(viewLifecycleOwner, { mAdapter.submitList(mealsList)})
+        viewModel.recyclerViewLiveData.observe(viewLifecycleOwner, { data ->mAdapter.submitList(data)})
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+        viewModel.recyclerViewLiveData.postValue(null)
         _binding = null
     }
 }

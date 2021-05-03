@@ -1,22 +1,30 @@
 package com.example.minhasreceitas.data.database
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.example.minhasreceitas.data.network.Meal
 
 @Dao
 interface ReceitasDao {
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertRecipeList(entity: ArrayList<Meal>)
+    suspend fun saveToDB(al: ArrayList<Meal>)
 
-    @Query("SELECT idMeal FROM recipes")
-    suspend fun findId(idMeal : ArrayList<Meal>)
+    @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
+    @Query("SELECT * FROM recipes WHERE id=:id")
+    suspend fun findId(id: String) : List<Meal>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertNewData(mealName : ArrayList<Meal>)
+    @Query("DELETE FROM recipes WHERE name= :s")
+    fun deleteRow(s: String)
+
+    @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
+    @Query("SELECT * FROM recipes WHERE cuisine=:s")
+    suspend fun loadCuisineDB(s: String) :  List<Meal>
+
+    @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
+    @Query("SELECT * FROM recipes WHERE id=:id")
+    suspend fun loadMeal(id: String) :  List<Meal>
+
+
+
 
 
 }

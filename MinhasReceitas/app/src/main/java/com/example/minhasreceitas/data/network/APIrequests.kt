@@ -6,20 +6,24 @@ import retrofit2.http.Headers
 import retrofit2.http.Query
 
 interface APIrequests {
+
     companion object {
         val BASE_URL = "https://themealdb.p.rapidapi.com/"
-        val KEY = "9ecf60d3a4msh169cff80435c289p1601ebjsn0f93f6a89f32"
+        const val KEY = "9ecf60d3a4msh169cff80435c289p1601ebjsn0f93f6a89f32"
+        const val HEADER = "x-rapidapi-key:"
 
         //Endpoint example : https://themealdb.p.rapidapi.com/filter.php?a=Canadian"
     }
-    @Headers("x-rapidapi-key:" + "9ecf60d3a4msh169cff80435c289p1601ebjsn0f93f6a89f32")
+    @Headers(HEADER + KEY)
     @GET("filter.php")
-    suspend fun getSpecificCuisine(@Query("a") type : String) : Response<RecipesList>
+    suspend fun getSpecificCuisineAPI(@Query("a") type : String) : Response<RecipesList>
 
 
     //Gets the description for the recipe
-    @Headers("x-rapidapi-key:" + "9ecf60d3a4msh169cff80435c289p1601ebjsn0f93f6a89f32")
-    @GET("filter.php")
+
+    @Headers(HEADER + KEY)
+    @GET("search.php")
     suspend fun getDescriptionRecipe(@Query("s") type: String) : Response<DescriptionRecipe>
+
 
 }

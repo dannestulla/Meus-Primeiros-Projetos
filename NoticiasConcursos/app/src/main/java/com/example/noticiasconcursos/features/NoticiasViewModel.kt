@@ -29,6 +29,7 @@ class NoticiasViewModel(
         var myDescription: ArrayList<String> = ArrayList()
         var myImages: ArrayList<String> = ArrayList()
         var result : ArrayList<String> = ArrayList()
+        var myDate : ArrayList<String> = ArrayList()
         var position: Int? = null
         var myLinks: ArrayList<String> = ArrayList()
         var myLiveData = MutableLiveData<ArrayList<CardData>>()
@@ -67,12 +68,13 @@ class NoticiasViewModel(
         myTitles = noticiasRepository.getTitlesDb() as ArrayList<String>
         myImages = noticiasRepository.getImagesDb() as ArrayList<String>
         myLinks = noticiasRepository.getLinksDb() as ArrayList<String>
+        myDate = noticiasRepository.getDate() as ArrayList<String>
         myDescription = noticiasRepository.getDescriptionDb() as ArrayList<String>
         cardData.ifEmpty {
         results = minOf(myTitles.size, myImages.size, myDescription.size, myLinks.size)
         i = 0
         while (i < results) {
-            cardData.add(CardData(myTitles[i], myDescription[i], myImages[i]))
+            cardData.add(CardData(myTitles[i], myDescription[i], myImages[i], myDate[i]))
             i++
         }
         }
@@ -87,7 +89,8 @@ class NoticiasViewModel(
                         myTitles[i],
                         myDescription[i],
                         myImages[i],
-                        myLinks[i]
+                        myLinks[i],
+                        myDate[i]
                     )
                 )
             i++
@@ -100,10 +103,11 @@ class NoticiasViewModel(
             result = fetchedData.myTitles
             myDescription = fetchedData.myDescription
             myImages = fetchedData.myImages
-            results = minOf(result.size, myImages.size, myDescription.size, myLinks.size)
+            myDate = fetchedData.myDate
+            results = minOf(result.size, myImages.size, myDescription.size, myLinks.size, myDate.size)
             i = 0
             while (i < results) {
-                cardData.add(CardData(result[i].trim(), "", myImages[i]))
+                cardData.add(CardData(result[i].trim(), "", myImages[i], myDate[i]))
                 i++
             }
         }
@@ -118,6 +122,7 @@ class NoticiasViewModel(
                     myTitles.add(response.body()!![i].title.rendered)
                     myDescription.add(response.body()!![i].content.rendered)
                     myLinks.add(response.body()!![i].guid.rendered)
+                    myDate.add(response.body()!![i].date)
                     i++
                 }
             }
@@ -130,7 +135,7 @@ class NoticiasViewModel(
                     i++
                 }
             }
-        fetchedData = FetchedData(myTitles, myDescription, myImages, myLinks)
+        fetchedData = FetchedData(myTitles, myDescription, myImages, myLinks, myDate)
 
         return fetchedData
     }

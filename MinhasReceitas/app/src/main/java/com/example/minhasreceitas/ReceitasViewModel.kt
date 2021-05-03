@@ -13,68 +13,98 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ReceitasViewModel @Inject constructor(
-    private val repository : ReceitasRepository
-): ViewModel() {
+        private val repository: ReceitasRepository
+) : ViewModel() {
     companion object {
         var mealsList = ArrayList<Meal>()
-        var descriptionList = ArrayList<String>()
-        var youtubeList  = ArrayList<String>()
-        var mealName2 = ArrayList<String>()
-        var strArea = ArrayList<String>()
-        var mealName = ArrayList<String>()
+        var currentMeal = ArrayList<Meal>()
+        lateinit var cuisineType: String
     }
-    var recyclerViewLiveData = MutableLiveData<ArrayList<Meal>>()
-    var descriptionData = MutableLiveData<ArrayList<String>>()
 
-   fun getCuisine(type : String) {
-       CoroutineScope(IO).launch {
-           when (type) {
-               type -> getFirstResponse(type)
-           }
-       }
-   }
-    suspend fun getRecipe(recipe: String) {
-            when (recipe) {
-                recipe -> getSecondResponse(recipe)
+    var recyclerViewLiveData: MutableLiveData<ArrayList<Meal>> = MutableLiveData()
+    var descriptionData = MutableLiveData<ArrayList<Meal>>()
 
+    suspend fun loadFromDB() {
+        val dbCuisine = repository.loadCuisineDB(cuisineType)
+        mealsList = dbCuisine as ArrayList<Meal>
+        recyclerViewLiveData.postValue(dbCuisine)
+    }
+
+    suspend fun dataAvaliableInDB(): Boolean {
+        return repository.loadCuisineDB(cuisineType).isNotEmpty()
+    }
+
+    fun databaseOrAPI(s: String) {
+        CoroutineScope(IO).launch {
+            cuisineType = s
+            if (dataAvaliableInDB()) {
+                loadFromDB()
+            } else {
+                getRecipesList(s)
+            }
         }
     }
 
-    private suspend fun getFirstResponse(s: String) {
+    suspend fun getInstructions(id: String) {
+        //Checks if exists in DB
+        val mealID = repository.findId(id)
+        if (mealID[0].strInstructions.isNotEmpty()) {
+            descriptionData.postValue(repository.loadMeal(mealID[0].toString()) as ArrayList<Meal>)
+
+        } else { getRecipeInstructions(currentMeal[0].strMeal)}
+
+    }
+
+    private suspend fun getRecipesList(s: String) {
         val response = repository.getSpecificCuisine(s)
         if (response.isSuccessful) {
+            var i = 0
             for (items in response.body()!!.meals) {
                 mealsList.add(items)
+                mealsList[i].strArea = cuisineType
+                i++
+                Log.e("lista", "$items\n")
             }
-            Log.e("lista", "$mealsList")
-
             saveToDB(mealsList)
-            recyclerViewLiveData.postValue(mealsList)
+            updateRecyclerView(mealsList)
+
         }
     }
 
-    private suspend fun getSecondResponse(recipe: String) {
-        val response2 = repository.getRecipe(recipe)
+    private fun updateRecyclerView(al: ArrayList<Meal>) {
+        recyclerViewLiveData.postValue(al)
+    }
+
+    private suspend fun getRecipeInstructions(s: String) {
+        val response2 = repository.getRecipe(s)
         if (response2.isSuccessful) {
-            for (items in response2.body()!!.meals) {
-                descriptionList.add(items.strInstructions)
-                youtubeList.add(items.strYoutube)
-                mealName2.add(items.strMeal)
-                strArea.add(items.strArea)
-            }
-            val match = repository.findId(mealName2[0])
-            var newArray = ArrayList<Meal>()
-            if (mealName[0] == match) {
-                newArray.add(Meal("","","",descriptionList[0],descriptionList[0],youtubeList[0],"",strArea[0]))
-                          }
-                repository.insertNewData(newArray)
+            val body = response2.body()!!.meals[0]
+            val newData = ArrayList<Meal>()
+            newData.add(Meal(
+                    currentMeal[0].idMeal,
+                    currentMeal[0].strMeal,
+                    currentMeal[0].strMealThumb,
+                    body.strInstructions,
+                    body.strYoutube,
+                    currentMeal[0].strCategory,
+                    currentMeal[0].strArea))
+
+            //Override old data in DB to new one
+            val dbItem = repository.findId(currentMeal[0].idMeal)
+            val currentItem = currentMeal[0].idMeal
+            if ( currentItem == dbItem[0].idMeal) {
+                repository.deleteRow(currentItem)
+                repository.saveToDB(newData)
+                descriptionData.postValue(newData)
 
 
             }
         }
 
+    }
 
 
     suspend fun saveToDB(mealList: ArrayList<Meal>) {
         repository.saveToDB(mealList)
-    }}
+    }
+}
