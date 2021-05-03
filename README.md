@@ -5,7 +5,7 @@
 - [**MyRecipes**](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/MinhasReceitas) (MVVM) ⭐⭐⭐</br>
 _**In Development** Serches recipes from multiple cuisines and shows a video how to make it. You can also order it from a nerby restaurant_
 
-- **[NoticiasConcursos ](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/NoticiasConcursos/app/src/main/java/com/example/noticiasconcursos)**(Room, MVVM, ViewModelFactory)  ⭐⭐⭐</br>
+- **[NoticiasConcursos ](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/NoticiasConcursos/app/src/main/java/com/example/noticiasconcursos)**(Room, MVVM, ViewModelFactory, Coroutines)  ⭐⭐⭐</br>
 _Mobile app that is a conversion of a WordPress news page_
 
 - **[Cifra Finder](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/CifraFinder/app/src/main/java/com/example/cifrafinder)** (Google Custom Search API) ⭐</br>
