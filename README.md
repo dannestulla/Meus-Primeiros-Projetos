@@ -2,6 +2,8 @@
 
 #### All my projects going from the complex to the simplest ones, represented by a star. The topics learned in each project are displayed next to it's name. To do them I used Android Studio, used Java at the beggining and afterwards migrated to Kotlin 
 
+## Last projects
+
 - [**MyRecipes**](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/MinhasReceitas) (MVVM) ⭐⭐⭐</br>
 _**In Development** Serches recipes from multiple cuisines and shows a video how to make it. You can also order it from a nerby restaurant_
 
@@ -10,6 +12,8 @@ _Mobile app that is a conversion of a WordPress news page_
 
 - **[Cifra Finder](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/CifraFinder/app/src/main/java/com/example/cifrafinder)** (Google Custom Search API) ⭐</br>
 _Searches the guitar tab of your current song playing at Spotify_
+
+## First Projects 
 
 - [**My Favourites Tracks**  ](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/MyFavouritesTracks)(Retrofit, Spotify API, RecyclerView) ⭐⭐</br>
 _Saves your songs liked at Spotify into a list where you can preview each song_
