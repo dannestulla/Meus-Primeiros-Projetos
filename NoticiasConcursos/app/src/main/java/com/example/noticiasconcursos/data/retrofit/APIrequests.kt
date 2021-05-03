@@ -13,11 +13,11 @@ interface APIrequests {
         const val BASE_URL = "https://jobconcursosbr.com/"
     }
 
-    @GET("wp-json/wp/v2/posts/?per_page=50&_fields=title,content.rendered,_links.self,guid.rendered,date")
+    @GET("wp-json/wp/v2/posts/?per_page=100&_fields=title,content.rendered,_links.self,guid.rendered,date")
     suspend fun getTextData(
     ): Response<List<TextDataItem>>
 
-    @GET("wp-json/wp/v2/media/?per_page=50")
+    @GET("wp-json/wp/v2/media/?per_page=100")
     suspend fun getImageData(): Response<List<ImgDataItem>>
 
     @GET("wp-json/wp/v2/posts/?per_page=1&_fields=title")

@@ -66,7 +66,6 @@ open class MainActivity : AppCompatActivity() {
             val response = AuthenticationClient.getResponse(resultCode, intent)
             when (response.type) {
                 AuthenticationResponse.Type.TOKEN -> myToken = response.accessToken
-
                 AuthenticationResponse.Type.ERROR -> Log.e("Token Error", response.error)
             }
         }

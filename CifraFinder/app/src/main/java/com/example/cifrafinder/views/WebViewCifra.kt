@@ -23,7 +23,6 @@ class WebViewCifra : AppCompatActivity() {
     lateinit var webView : WebView
     private lateinit var refresh : View
     private lateinit var search : String
-    lateinit var response : String
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {

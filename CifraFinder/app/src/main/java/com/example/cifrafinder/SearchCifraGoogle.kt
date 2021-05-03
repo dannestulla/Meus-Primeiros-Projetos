@@ -35,7 +35,7 @@ class SearchCifraGoogle : ViewModel() {
             .build()
         val service = retrofit.create(JsonAPI::class.java)
         val call = service.getCurrentTrack(" Bearer " + MainActivity.myToken)
-        try {
+
         call.enqueue(object : Callback<SpotifyJson> {
             override fun onResponse(call: Call<SpotifyJson>, response: Response<SpotifyJson>) {
                 val artistName: String? = response.body()?.item?.name?.trim()
@@ -47,7 +47,7 @@ class SearchCifraGoogle : ViewModel() {
                     val intent = Intent(MainActivity().contextReturn(), WebViewCifra::class.java)
                     //searchBuilder()
                     intent.putExtra("search", search)
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK )
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                     urlbar = search
                     MainActivity().contextReturn()?.let {
                         ContextCompat.startActivity(it, intent, null )
@@ -62,10 +62,7 @@ class SearchCifraGoogle : ViewModel() {
                Toast.makeText(MainActivity().contextReturn(), "Erro: Cifra não encontrada", Toast.LENGTH_LONG).show()
             }
         })
-    } catch (ex : Exception) {
-        Log.e("error", ex.toString())
-
-        }}
+    } }
 
 
-    }
+
