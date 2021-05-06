@@ -1,6 +1,6 @@
 # My Android Studio Projects
 
-#### Here's a list of all my projects, each level of complexity is represented by the number of stars. 
+#### Here's a list of all my projects, the level of complexity is represented by the number of stars. 
 Next to each project's name are the topics learned. I used Android Studio to develop them. Java was used at the beginning but then I migrated to Kotlin.
 
 ## Lastest projects
