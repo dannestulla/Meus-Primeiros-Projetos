@@ -1,6 +1,6 @@
 # My Android Studio Projects
 
-#### All my projects going from the complex to the simplest ones, represented by a star. The topics learned in each project are displayed next to it's name. To do them I used Android Studio, used Java at the beggining and afterwards migrated to Kotlin 
+#### All my projects going from the complex to the simplest ones, represented by a star. The topics learned in each project are displayed next to it's name. To do them I used Android Studio, used Java at the begining and afterwards migrated to Kotlin 
 
 ## Last projects
 
