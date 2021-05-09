@@ -1,8 +1,29 @@
-# My Projects</br>
+# My Android Studio Projects
 
-1-[Guess the number ](https://github.com/Dannestulla/AndroidStudioProjects/blob/main/AdivinheNumero/app/src/main/java/com/example/adivinhenumero/MainActivity.java)(Java, ViewModel) </br> 
-2-[Shop kart](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/ListaDeCompras/app/src/main/java/com/example/listadecompras) (Firebase Auth, ProgressBar, SeekBar)</br>
-3-[AvatarMaker ](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/AvatarMaker/app/src/main/java/com/example/avatarmaker) (Firebase Authenticator, Firebase Firestore Database, )</br>
-4-[My Favourites Tracks ](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/MyFavouritesTracks)(Retrofit, Spotify API, RecyclerView) </br>
-5-[Cifra Finder](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/CifraFinder/app/src/main/java/com/example/cifrafinder) (Retrofit, Google Custom Search API, App Icon)</br>
-6-[NoticiasConcursos](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/NoticiasConcursos)(Retrofit, RecyclerView, Flow, NetworkBoundResources, Room, MVVM) </br>
+#### Here's a list of all my projects, the level of complexity is represented by the number of stars. 
+Next to each project's name are the topics learned. I used Android Studio to develop them. Java was used at the beginning but then I migrated to Kotlin.
+
+## Lastest projects
+
+- [**MyRecipes**](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/MinhasReceitas) (MVVM) ⭐⭐⭐</br>
+_**In Development** Searches recipes from multiple cuisines and shows a video how to make it. You can also order it from a nerby restaurant_
+
+- **[NoticiasConcursos ](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/NoticiasConcursos/app/src/main/java/com/example/noticiasconcursos)**(Room, MVVM, ViewModelFactory, Coroutines)  ⭐⭐⭐</br>
+_Mobile app that is a conversion of a WordPress news page_
+
+- **[Cifra Finder](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/CifraFinder/app/src/main/java/com/example/cifrafinder)** (Google Custom Search API) ⭐</br>
+_Searches the guitar tab of your current song playing at Spotify_
+
+## First Projects 
+
+- [**My Favourites Tracks**  ](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/MyFavouritesTracks)(Retrofit, Spotify API, RecyclerView) ⭐⭐</br>
+_Saves your songs liked at Spotify into a list where you can preview each song_
+
+- **[AvatarMaker ](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/AvatarMaker/app/src/main/java/com/example/avatarmaker)** (Firebase Firestore Database) ⭐⭐</br>
+_Made to connect Designers and users. Users can post art requests and designers can see the list and get the order_
+
+- [**Shop kart**](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/ListaDeCompras/app/src/main/java/com/example/listadecompras) (Firebase Auth, View Components) ⭐ </br>
+_Create your own shopping cart list and sent it to your email_
+
+- [**Guess the number** ](https://github.com/Dannestulla/AndroidStudioProjects/blob/main/AdivinheNumero/app/src/main/java/com/example/adivinhenumero/MainActivity.java)(Java) ⭐ </br>
+_Game that you need to guess the right rumber_
