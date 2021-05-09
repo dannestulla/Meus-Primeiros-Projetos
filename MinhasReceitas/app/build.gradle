@@ -3,12 +3,12 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'com.google.gms.google-services'
 }
 
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
-    
 
         buildFeatures  {
             viewBinding = true
@@ -21,7 +21,7 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -53,7 +53,9 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
+    implementation files('libs/YouTubeAndroidPlayerApi.jar')
+    implementation 'com.google.firebase:firebase-auth:19.2.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
@@ -71,11 +73,29 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
 
     // Room
-    implementation "androidx.room:room-runtime:2.4.0-alpha01"
-    kapt "androidx.room:room-compiler:2.4.0-alpha01"
-    implementation "androidx.room:room-ktx:2.4.0-alpha01"
+    implementation "androidx.room:room-runtime:2.4.0-alpha02"
+    kapt "androidx.room:room-compiler:2.4.0-alpha02"
+    implementation "androidx.room:room-ktx:2.4.0-alpha02"
 
     //Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
+    
+    //Youtube API
+
+    //MultiDex
+    def multidex_version = "2.0.1"
+    implementation "androidx.multidex:multidex:$multidex_version"
+
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:27.1.0')
+    // Declare the dependency for the Firebase Authentication library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.firebase:firebase-core:18.0.3'
+
+
 
 }

@@ -1,4 +1,4 @@
-package com.example.minhasreceitas
+package com.example.minhasreceitas.viewmodels
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -9,7 +9,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
+import java.util.*
 import javax.inject.Inject
+import kotlin.collections.ArrayList
 
 @HiltViewModel
 class ReceitasViewModel @Inject constructor(
@@ -20,7 +22,6 @@ class ReceitasViewModel @Inject constructor(
         var currentMeal = ArrayList<Meal>()
         lateinit var cuisineType: String
     }
-
     var recyclerViewLiveData: MutableLiveData<ArrayList<Meal>> = MutableLiveData()
     var descriptionData = MutableLiveData<ArrayList<Meal>>()
 
@@ -50,9 +51,7 @@ class ReceitasViewModel @Inject constructor(
         val mealID = repository.findId(id)
         if (mealID[0].strInstructions.isNotEmpty()) {
             descriptionData.postValue(repository.loadMeal(mealID[0].toString()) as ArrayList<Meal>)
-
         } else { getRecipeInstructions(currentMeal[0].strMeal)}
-
     }
 
     private suspend fun getRecipesList(s: String) {
@@ -85,8 +84,6 @@ class ReceitasViewModel @Inject constructor(
                     currentMeal[0].strMeal,
                     currentMeal[0].strMealThumb,
                     body.strInstructions,
-                    body.strYoutube,
-                    currentMeal[0].strCategory,
                     currentMeal[0].strArea))
 
             //Override old data in DB to new one
@@ -96,14 +93,9 @@ class ReceitasViewModel @Inject constructor(
                 repository.deleteRow(currentItem)
                 repository.saveToDB(newData)
                 descriptionData.postValue(newData)
-
-
             }
         }
-
     }
-
-
     suspend fun saveToDB(mealList: ArrayList<Meal>) {
         repository.saveToDB(mealList)
     }

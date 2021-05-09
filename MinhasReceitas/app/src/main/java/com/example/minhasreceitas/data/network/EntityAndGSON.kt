@@ -14,10 +14,7 @@ data class Meal(
         @ColumnInfo(name = "name", defaultValue = "")  val strMeal: String,
         @ColumnInfo(name = "image", defaultValue = "") val strMealThumb: String,
         @ColumnInfo(name = "recipe", defaultValue = "") val strInstructions: String,
-        @ColumnInfo(name = "youtube_link", defaultValue = "") val strYoutube : String,
-        @ColumnInfo(name = "category", defaultValue = "") val strCategory :  String,
-        @ColumnInfo(name = "cuisine", defaultValue = "") var strArea : String,
-
+        @ColumnInfo(name = "cuisine", defaultValue = "") var strArea : String
         )
 
 data class DescriptionRecipe(

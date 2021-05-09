@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.InstructionsFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="168dp"
+        tools:layout_editor_absoluteY="62dp"
+        android:fillViewport="true">
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <ImageView
+                android:id="@+id/imageView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="48dp"
+                android:layout_marginBottom="27dp"
+                android:src="@drawable/back" />
+
+            <ImageView
+                android:id="@+id/imageView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="308dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
+                android:src="@drawable/hotelbell" />
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="250dp"
+                android:layout_marginLeft="270dp"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/hellixblack"
+                android:text="Deliver It!"
+                android:textColor="@color/orange"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="363dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="100dp"
+                android:fontFamily="@font/abrilfatfaceregular"
+                android:text="Homemade Hamburger"
+                android:textColor="@color/black"
+                android:textSize="24dp" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="180dp"
+                android:text="American" />
+
+            <TextView
+
+                android:id="@+id/textView26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="320dp"
+                android:fontFamily="@font/hellixregular"
+                android:text="Instructions:"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+            <ImageView
+                android:id="@+id/recipeimage"
+                android:layout_width="170dp"
+                android:layout_height="136dp"
+                android:layout_marginStart="210dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="180dp"
+
+                />
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="@id/textView26"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="350dp"
+                android:layout_marginEnd="30dp"
+                android:justificationMode="inter_word"
+                android:text="Instructions"
+                android:textSize="16dp" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

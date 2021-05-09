@@ -80,9 +80,9 @@
     </fragment>
       <fragment
         android:id="@+id/descriptionFragment"
-        android:name="com.example.minhasreceitas.fragments.DescriptionFragment"
+        android:name="com.example.minhasreceitas.fragments.InstructionsFragment"
         android:label="fragment_description"
-        tools:layout="@layout/fragment_description" >
+        tools:layout="@layout/fragment_instructions" >
           <action
               android:id="@+id/action_descriptionFragment_to_mapsFragment"
               app:destination="@id/mapsFragment"

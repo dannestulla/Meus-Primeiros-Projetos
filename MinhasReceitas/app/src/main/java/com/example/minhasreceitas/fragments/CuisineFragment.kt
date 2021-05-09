@@ -8,10 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import com.example.minhasreceitas.R
-import com.example.minhasreceitas.ReceitasViewModel
+import com.example.minhasreceitas.viewmodels.ReceitasViewModel
 import com.example.minhasreceitas.databinding.FragmentCuisineBinding
-import com.example.minhasreceitas.databinding.FragmentRegisterBinding
-import com.example.minhasreceitas.util.ReceitasAdapter
 
 
 class CuisineFragment : Fragment() {
@@ -48,17 +46,8 @@ class CuisineFragment : Fragment() {
             imageView6.setOnClickListener {
                 viewModel.databaseOrAPI("american")
                 navController.navigate(R.id.action_cuisineFragment_to_recipeFragment) }
-            imageView7.setOnClickListener {
-                viewModel.databaseOrAPI("arabic")
-                navController.navigate(R.id.action_cuisineFragment_to_recipeFragment) }
             imageView8.setOnClickListener {
                 viewModel.databaseOrAPI("chinese")
-                navController.navigate(R.id.action_cuisineFragment_to_recipeFragment) }
-            imageView9.setOnClickListener {
-                viewModel.databaseOrAPI("healthy")
-                navController.navigate(R.id.action_cuisineFragment_to_recipeFragment) }
-            imageView10.setOnClickListener {
-                viewModel.databaseOrAPI("vegan")
                 navController.navigate(R.id.action_cuisineFragment_to_recipeFragment) }
             imageView11.setOnClickListener {
                 navController.navigate(R.id.action_cuisineFragment_to_loginFragment)

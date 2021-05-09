@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.minhasreceitas.R
-import com.example.minhasreceitas.ReceitasViewModel
+import com.example.minhasreceitas.viewmodels.ReceitasViewModel
 import com.example.minhasreceitas.data.network.Meal
 import com.example.minhasreceitas.databinding.RecipeCardHorizontalBinding
 import com.squareup.picasso.Picasso

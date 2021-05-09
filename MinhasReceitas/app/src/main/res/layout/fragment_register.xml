@@ -68,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="292dp"
         android:fontFamily="@font/colortube_regular"
-        android:text="Minhas Receitas"
+        android:text="My Recipes"
         android:textColor="#DCDCC9"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -88,40 +88,45 @@
         app:srcCompat="@drawable/register_menu" />
 
     <EditText
-        android:backgroundTint="#00000000"
-
         android:id="@+id/editTextPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
+        android:layout_width="203dp"
 
+
+        android:layout_height="42dp"
+        android:backgroundTint="#00000000"
+        android:ems="10"
         android:inputType="textPassword"
+
         android:textColor="@color/white"
+        android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:backgroundTint="#00000000"
         android:id="@+id/editTextEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:layout_width="204dp"
+        android:layout_height="43dp"
         android:layout_marginBottom="68dp"
+        android:backgroundTint="#00000000"
         android:ems="10"
         android:textColor="@color/white"
+        android:textSize="14dp"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:backgroundTint="#00000000"
-
         android:id="@+id/editTextUserName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="128dp"
+        android:textSize="14dp"
 
+        android:layout_width="208dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="128dp"
+        android:backgroundTint="#00000000"
         android:ems="10"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
