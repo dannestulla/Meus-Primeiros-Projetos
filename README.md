@@ -5,7 +5,7 @@ Next to each project's name are the topics learned. I used Android Studio to dev
 
 ## Lastest projects
 
-- [**MyRecipes**](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/MinhasReceitas) (MVVM) ⭐⭐⭐</br>
+- [**MyRecipes**](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/MinhasReceitas) (MVVM, Unit Test) ⭐⭐⭐</br>
 _**In Development** Searches recipes from multiple cuisines and shows a video how to make it. You can also order it from a nerby restaurant_
 
 - **[NoticiasConcursos ](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/NoticiasConcursos/app/src/main/java/com/example/noticiasconcursos)**(Room, MVVM, ViewModelFactory, Coroutines)  ⭐⭐⭐</br>
