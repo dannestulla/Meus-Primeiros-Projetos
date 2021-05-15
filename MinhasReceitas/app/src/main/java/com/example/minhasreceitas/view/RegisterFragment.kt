@@ -1,7 +1,6 @@
-package com.example.minhasreceitas.fragments
+package com.example.minhasreceitas.view
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import com.example.minhasreceitas.R
 import com.example.minhasreceitas.databinding.FragmentRegisterBinding
-import com.example.minhasreceitas.viewmodels.AuthViewModel
+import com.example.minhasreceitas.viewmodel.AuthViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -39,7 +38,8 @@ class RegisterFragment : Fragment() {
 
         binding.register.setOnClickListener { viewModel.createAccount(
             binding.editTextEmail.text.toString(),
-            binding.editTextPassword.text.toString())}
+            binding.editTextPassword2.text.toString(),
+            binding.editTextPasswordValidate.text.toString())}
 
         binding.textView4.setOnClickListener { navController.navigate(R.id.action_registerFragment_to_loginFragment)}
         viewModel.fragmentDestination.observe(viewLifecycleOwner, {

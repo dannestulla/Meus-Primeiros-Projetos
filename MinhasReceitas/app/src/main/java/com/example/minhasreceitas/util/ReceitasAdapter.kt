@@ -8,17 +8,17 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.minhasreceitas.R
-import com.example.minhasreceitas.viewmodels.ReceitasViewModel
 import com.example.minhasreceitas.data.network.Meal
 import com.example.minhasreceitas.databinding.RecipeCardHorizontalBinding
+import com.example.minhasreceitas.viewmodel.RecipesListViewModel
 import com.squareup.picasso.Picasso
 
 class ReceitasAdapter :
-        ListAdapter<Meal, ReceitasAdapter.ReceitasViewHolder>(ReceitasComparator()){
+    ListAdapter<Meal, ReceitasAdapter.ReceitasViewHolder>(ReceitasComparator()) {
 
-   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReceitasViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReceitasViewHolder {
         val binding =
-                RecipeCardHorizontalBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            RecipeCardHorizontalBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ReceitasViewHolder(binding)
     }
 
@@ -29,30 +29,33 @@ class ReceitasAdapter :
         }
     }
 
-    class ReceitasViewHolder(private val binding: RecipeCardHorizontalBinding) :
-            RecyclerView.ViewHolder(binding.root) {
 
-            fun bindView(meal : Meal) {
-                binding.apply {
-                    name.text = meal.strMeal
-                    Picasso.get().load(meal.strMealThumb).into(imageView25)
-                }
+    class ReceitasViewHolder(private val binding: RecipeCardHorizontalBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        fun bindView(meal: Meal) {
+            binding.apply {
+                name.text = meal.strMeal
+                Picasso.get().load(meal.strMealThumb).into(imageView25)
             }
+        }
+
         init {
-            itemView.setOnClickListener { v:View ->
-                ReceitasViewModel.currentMeal.add(ReceitasViewModel.mealsList[adapterPosition])
+            itemView.setOnClickListener { v: View ->
+                RecipesListViewModel.currentMeal.add(RecipesListViewModel.mealsList[adapterPosition])
                 val navController = Navigation.findNavController(v)
                 navController.navigate(R.id.action_recipeFragment_to_descriptionFragment)
 
             }
         }
     }
+
     class ReceitasComparator : DiffUtil.ItemCallback<Meal>() {
         override fun areItemsTheSame(oldItem: Meal, newItem: Meal) =
-                oldItem.idMeal == newItem.idMeal
+            oldItem.idMeal == newItem.idMeal
 
         override fun areContentsTheSame(oldItem: Meal, newItem: Meal) =
-                oldItem == newItem
+            oldItem == newItem
     }
 }
 

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.CuisineFragment">
+    tools:context=".view.CuisineFragment"
+    android:background="@color/white">
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -121,11 +122,13 @@
                 android:layout_marginRight="48dp"
                 android:fontFamily="@font/hellixregular"
                 android:text="American"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@+id/imageView6"
                 app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
             <TextView
+                android:textColor="@color/black"
                 android:id="@+id/textView14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -145,6 +148,7 @@
                 android:layout_marginTop="14dp"
                 android:fontFamily="@font/hellixregular"
                 android:text="Italian"
+                android:textColor="@color/black"
                 android:textSize="14dp"
                 app:layout_constraintEnd_toEndOf="@+id/imageView4"
                 app:layout_constraintStart_toStartOf="@+id/imageView4"
@@ -160,6 +164,7 @@
                 android:fontFamily="@font/hellixregular"
                 android:text="Vietnamese"
                 android:textSize="14sp"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="@+id/imageView5"
                 app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
@@ -170,6 +175,7 @@
                 android:layout_marginTop="14dp"
                 android:fontFamily="@font/hellixregular"
                 android:text="Japanese"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@+id/imageView3"
                 app:layout_constraintStart_toStartOf="@+id/imageView3"

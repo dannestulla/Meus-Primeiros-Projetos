@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".fragments.LoginFragment">
+    tools:context=".view.LoginFragment">
 
 
     <Button
@@ -117,8 +117,11 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@null"
         android:ems="10"
-        android:inputType="textPassword"
         android:textColor="@color/beije"
+        android:hint="Password"
+        android:textColorHint="@color/beije"
+
+        android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintStart_toStartOf="@+id/imageView2" />
@@ -131,6 +134,8 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:textColor="@color/beije"
+        android:hint="Email"
+        android:textColorHint="@color/beije"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintStart_toStartOf="@+id/imageView2"

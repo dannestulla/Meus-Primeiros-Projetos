@@ -1,4 +1,4 @@
-package com.example.minhasreceitas.fragments
+package com.example.minhasreceitas.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import com.example.minhasreceitas.R
-import com.example.minhasreceitas.viewmodels.ReceitasViewModel
+import com.example.minhasreceitas.viewmodel.RecipesListViewModel
 import com.example.minhasreceitas.databinding.FragmentStartScreenBinding
 
 
@@ -19,7 +19,7 @@ class StartScreenFragment : Fragment() {
     private var _binding: FragmentStartScreenBinding? = null
     private val binding get() = _binding!!
 
-    val viewModel by activityViewModels<ReceitasViewModel>()
+    val viewModel by activityViewModels<RecipesListViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

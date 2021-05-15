@@ -36,21 +36,22 @@ class ReceitasRepository @Inject constructor(
 
     suspend fun findId(id: String): List<Meal> {
         Log.d("Repository", "DB: Finding id $id")
-
         return database.findId(id)
     }
 
-    suspend fun loadMeal(s: String): List<Meal> {
-        Log.d("Repository", "DB: Loading Meal $s")
-
-        return database.loadMeal(s)
+    suspend fun loadCuisineDB(cuisine: String): List<Meal> {
+        Log.d("Repository", "DB: Loading cuisine $cuisine")
+        return database.loadCuisineDB(cuisine)
     }
 
-    suspend fun loadCuisineDB(s: String): List<Meal> {
-        Log.d("Repository", "DB: Loading cuisine $s")
-
-        return database.loadCuisineDB(s)
+    suspend fun loadFavouriteFromDB(favourite : String) : List<Meal> {
+        Log.d("Repository", "DB: Loading favourites list")
+        return database.findFavouriteRecipes(favourite)
     }
+    /*suspend fun saveFavouriteToDB(favourite : String) : List<Meal> {
+        Log.d("Repository", "DB: Loading favourites list")
+        return database.saveFavouriteToDB(favourite)
+    }*/
 
 
 }

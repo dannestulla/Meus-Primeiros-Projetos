@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".MainActivity">
+    tools:context=".view.MainActivity">
 
 
     <TextView
@@ -85,10 +85,10 @@
         android:layout_marginBottom="26dp"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintStart_toStartOf="@+id/button"
-        app:srcCompat="@drawable/register_menu" />
+        app:srcCompat="@drawable/register_image" />
 
     <EditText
-        android:id="@+id/editTextPassword"
+        android:id="@+id/editTextPasswordValidate"
         android:layout_width="203dp"
 
 
@@ -96,41 +96,57 @@
         android:backgroundTint="#00000000"
         android:ems="10"
         android:inputType="textPassword"
+        android:hint="Confirm Password"
+        android:fontFamily="@font/hellixregular"
+
+
+        android:textColorHint="@color/beije"
 
         android:textColor="@color/white"
-        android:textSize="14dp"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextPassword2"
+        android:layout_width="203dp"
+
+
+        android:layout_height="42dp"
+        android:layout_marginBottom="64dp"
+        android:backgroundTint="#00000000"
+        android:ems="10"
+        android:hint="Password"
+        android:fontFamily="@font/hellixregular"
+
+        android:inputType="textPassword"
+        android:textColor="@color/beije"
+        android:textSize="16dp"
+        android:textColorHint="@color/beije"
+
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editTextEmail"
-        android:inputType="textEmailAddress"
-
         android:layout_width="204dp"
         android:layout_height="43dp"
-        android:layout_marginBottom="68dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="#00000000"
         android:ems="10"
+        android:fontFamily="@font/hellixregular"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+
+
         android:textColor="@color/white"
-        android:textSize="14dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        android:textColorHint="@color/beije"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextPassword2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextUserName"
-        android:textSize="14dp"
-
-        android:layout_width="208dp"
-        android:layout_height="41dp"
-        android:layout_marginBottom="128dp"
-        android:backgroundTint="#00000000"
-        android:ems="10"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

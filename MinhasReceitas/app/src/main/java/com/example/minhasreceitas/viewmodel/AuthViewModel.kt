@@ -1,37 +1,28 @@
-package com.example.minhasreceitas.viewmodels
+package com.example.minhasreceitas.viewmodel
 
-import android.app.Activity
 import android.app.Application
 import android.content.Context
 import android.text.Editable
-import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.Task
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.lifecycle.HiltViewModel
-import java.security.KeyStore
 import javax.inject.Inject
 
 @HiltViewModel
 class AuthViewModel @Inject constructor(
     val app : Application
 ) : ViewModel() {
-
     var fragmentDestination = MutableLiveData<String>()
     lateinit var auth: FirebaseAuth
-    lateinit var LOGIN : String
     var SHARED_PREF = "SharedPref"
-    lateinit var email : Editable
     lateinit var password : Editable
     var EMAIL = "email"
     var PASSWORD = "password"
 
-
-    fun createAccount(email: String, password: String) {
+    fun createAccount(email: String, password: String, confpassword: String) {
+        if (validadeRegistration(email,password, confpassword)) {
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 Toast.makeText(app, "Registration Complete", Toast.LENGTH_LONG).show()
@@ -42,8 +33,13 @@ class AuthViewModel @Inject constructor(
                 Toast.makeText(app, "Create Account Failed, $ex", Toast.LENGTH_LONG).show()
             }
         }
-    }
+    } else {
+        Toast.makeText(app, "Email and password must be over 4 letters and passwords must match", Toast.LENGTH_LONG).show()
+        }}
+
     fun signIn(email : String, password: String) {
+        val confpassword = password
+        if (validadeRegistration(email,password, confpassword))
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
@@ -91,9 +87,18 @@ class AuthViewModel @Inject constructor(
         sharedPref.edit().putString(EMAIL, email).apply()
         sharedPref.edit().putString(PASSWORD, password).apply()
 
-
-
     }
+
+    companion object {
+    fun validadeRegistration(
+        validEmail : String,
+        validPassword : String,
+        validConfirmedPassword : String) : Boolean {
+            if(validEmail.isEmpty() || validPassword.isEmpty() || validConfirmedPassword.isEmpty()) return false
+            if(validPassword.length <= 4) return false
+            if(validPassword != validConfirmedPassword) return false
+        return true
+    }}
 }
 
 

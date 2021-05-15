@@ -86,7 +86,7 @@ dependencies {
     //Jsoup
     implementation 'org.jsoup:jsoup:1.13.1'
     implementation 'com.google.android.gms:play-services-basement:17.6.0'
-
+    //Dagger Hilt
     implementation "com.google.dagger:hilt-android:2.35"
     kapt "com.google.dagger:hilt-android-compiler:2.28-alpha"
 

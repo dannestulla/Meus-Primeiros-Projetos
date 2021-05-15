@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.minhasreceitas.fragments.RegisterFragment"
+        android:name="com.example.minhasreceitas.view.RegisterFragment"
         android:label="RegisterFragment"
         tools:layout="@layout/fragment_register">
         <action
@@ -22,7 +22,7 @@
     </fragment>
       <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.minhasreceitas.fragments.LoginFragment"
+        android:name="com.example.minhasreceitas.view.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
           <action
@@ -36,7 +36,7 @@
       </fragment>
     <fragment
         android:id="@+id/startScreenFragment"
-        android:name="com.example.minhasreceitas.fragments.StartScreenFragment"
+        android:name="com.example.minhasreceitas.view.StartScreenFragment"
         android:label="fragment_start_screen"
         tools:layout="@layout/fragment_start_screen" >
         <action
@@ -48,7 +48,7 @@
     </fragment>
         <fragment
         android:id="@+id/cuisineFragment"
-        android:name="com.example.minhasreceitas.fragments.CuisineFragment"
+        android:name="com.example.minhasreceitas.view.CuisineFragment"
         android:label="fragment_cuisine"
         tools:layout="@layout/fragment_cuisine" >
           <action
@@ -64,7 +64,7 @@
        </fragment>
     <fragment
         android:id="@+id/recipeFragment"
-        android:name="com.example.minhasreceitas.fragments.RecipesFragment"
+        android:name="com.example.minhasreceitas.view.RecipesListFragment"
         android:label="fragment_recipe"
         tools:layout="@layout/fragment_recipe" >
         <action
@@ -80,7 +80,7 @@
     </fragment>
       <fragment
         android:id="@+id/descriptionFragment"
-        android:name="com.example.minhasreceitas.fragments.InstructionsFragment"
+        android:name="com.example.minhasreceitas.view.InstructionsFragment"
         android:label="fragment_description"
         tools:layout="@layout/fragment_instructions" >
           <action
@@ -96,7 +96,7 @@
       </fragment>
     <fragment
         android:id="@+id/mapsFragment"
-        android:name="com.example.minhasreceitas.fragments.MapsFragment"
+        android:name="com.example.minhasreceitas.view.MapsFragment"
         android:label="fragment_maps"
         tools:layout="@layout/fragment_maps" >
         <action

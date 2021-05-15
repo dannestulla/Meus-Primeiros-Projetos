@@ -1,4 +1,4 @@
-package com.example.minhasreceitas.fragments
+package com.example.minhasreceitas.view
 
 import androidx.fragment.app.Fragment
 

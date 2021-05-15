@@ -1,4 +1,4 @@
-package com.example.minhasreceitas.fragments
+package com.example.minhasreceitas.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.minhasreceitas.R
 import com.example.minhasreceitas.databinding.FragmentLoginBinding
-import com.example.minhasreceitas.viewmodels.AuthViewModel
+import com.example.minhasreceitas.viewmodel.AuthViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -34,7 +34,6 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
-        val user = Firebase.auth.currentUser
         viewModel.auth = FirebaseAuth.getInstance()
         viewModel.auth = Firebase.auth
         binding.apply {
@@ -42,7 +41,7 @@ class LoginFragment : Fragment() {
             button2.setOnClickListener {
                 val password = editTextTextPassword.text.toString()
                 val email = editTextTextPersonName.text.toString()
-                viewModel.signIn(email, password) }
+                viewModel.signIn(email, password)}
             resetpassword.setOnClickListener { viewModel.passwordReset(binding.editTextTextPersonName.text.toString()) }
             binding.editTextTextPersonName.setText(viewModel.loadSavedPref("Email"))
             binding.editTextTextPassword.setText(viewModel.loadSavedPref("Password"))
