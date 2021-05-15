@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.minhasreceitas.data.network.Meal
 import com.example.minhasreceitas.data.network.ReceitasRepository
-import com.example.minhasreceitas.util.ReceitasAdapter
+import com.example.minhasreceitas.util.RecipesAdapter
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
@@ -20,12 +20,11 @@ class RecipesListViewModel @Inject constructor(
 ) : ViewModel() {
     companion object {
         var mealsList = ArrayList<Meal>()
-        var currentMeal = ArrayList<Meal>()
         lateinit var cuisineType: String
     }
 
     lateinit var cuisineType: String
-    val mAdapter = ReceitasAdapter()
+    val mAdapter = RecipesAdapter()
     var favouritesList = ArrayList<Meal>()
     var favButtonRecipeList = false
     var recyclerViewLiveData: MutableLiveData<ArrayList<Meal>> = MutableLiveData()

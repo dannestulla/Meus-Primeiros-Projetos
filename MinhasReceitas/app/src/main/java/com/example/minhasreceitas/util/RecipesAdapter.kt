@@ -10,19 +10,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.minhasreceitas.R
 import com.example.minhasreceitas.data.network.Meal
 import com.example.minhasreceitas.databinding.RecipeCardHorizontalBinding
+import com.example.minhasreceitas.viewmodel.InstructionsViewModel.Companion.currentMeal
 import com.example.minhasreceitas.viewmodel.RecipesListViewModel
 import com.squareup.picasso.Picasso
 
-class ReceitasAdapter :
-    ListAdapter<Meal, ReceitasAdapter.ReceitasViewHolder>(ReceitasComparator()) {
+class RecipesAdapter :
+    ListAdapter<Meal, RecipesAdapter.RecipesAdapterViewHolder>(ReceitasComparator()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReceitasViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipesAdapterViewHolder {
         val binding =
             RecipeCardHorizontalBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ReceitasViewHolder(binding)
+        return RecipesAdapterViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ReceitasViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RecipesAdapterViewHolder, position: Int) {
         val currentItem = getItem(position)
         if (currentItem != null) {
             holder.bindView(currentItem)
@@ -30,7 +31,7 @@ class ReceitasAdapter :
     }
 
 
-    class ReceitasViewHolder(private val binding: RecipeCardHorizontalBinding) :
+    class RecipesAdapterViewHolder(private val binding: RecipeCardHorizontalBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bindView(meal: Meal) {
@@ -42,7 +43,7 @@ class ReceitasAdapter :
 
         init {
             itemView.setOnClickListener { v: View ->
-                RecipesListViewModel.currentMeal.add(RecipesListViewModel.mealsList[adapterPosition])
+                currentMeal.add(RecipesListViewModel.mealsList[adapterPosition])
                 val navController = Navigation.findNavController(v)
                 navController.navigate(R.id.action_recipeFragment_to_descriptionFragment)
 

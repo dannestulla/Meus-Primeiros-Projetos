@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -12,12 +13,11 @@ import com.example.minhasreceitas.R
 import com.example.minhasreceitas.data.network.Meal
 import com.example.minhasreceitas.databinding.FragmentInstructionsBinding
 import com.example.minhasreceitas.viewmodel.InstructionsViewModel
-import com.example.minhasreceitas.viewmodel.RecipesListViewModel.Companion.currentMeal
+import com.example.minhasreceitas.viewmodel.InstructionsViewModel.Companion.currentMeal
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
-
 
 class InstructionsFragment : Fragment() {
     private val viewModel by activityViewModels<InstructionsViewModel>()
@@ -40,7 +40,6 @@ class InstructionsFragment : Fragment() {
         viewModel.checkIfFavourited()
 
 
-
         //DISPLAY ITEMS, VISIBILITY ON/OFF
         viewModel.isLoaded.observe(viewLifecycleOwner, {
             if (it == true) {
@@ -56,7 +55,8 @@ class InstructionsFragment : Fragment() {
                     textView17.isVisible = true
                 }
             }
-        })
+        }
+    )
         viewModel.descriptionData.apply {
             observe(viewLifecycleOwner, {
                 binding.textView27.text = it[0].strInstructions
@@ -81,18 +81,22 @@ class InstructionsFragment : Fragment() {
             if (!buttonOn) {
                 CoroutineScope(IO).launch { viewModel.addToItemToFavourites() }
                 it.setBackgroundResource(R.drawable.favoriteon)
+                Toast.makeText(context, "Added To Favourites!", Toast.LENGTH_LONG).show()
             } else {
                 CoroutineScope(IO).launch { viewModel.removeItemFromFavourites() }
                 it.setBackgroundResource(R.drawable.favoriteoff)
+                Toast.makeText(context, "Removed from Favourites!", Toast.LENGTH_LONG).show()
             }
         }
         //CHECK IF IS IN FAVOURITES
         viewModel.isFavourited.observe(viewLifecycleOwner, {
-            if (it == true) {binding.addtofavourites.setBackgroundResource(R.drawable.favoriteon)}
-            else {binding.addtofavourites.setBackgroundResource(R.drawable.favoriteoff)}
+            if (it == true) {
+                binding.addtofavourites.setBackgroundResource(R.drawable.favoriteon)
+            } else {
+                binding.addtofavourites.setBackgroundResource(R.drawable.favoriteoff)
+            }
         })
     }
-
 
 
     override fun onDestroyView() {

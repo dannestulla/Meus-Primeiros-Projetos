@@ -15,7 +15,7 @@ data class Meal(
     @ColumnInfo(name = "image", defaultValue = "") val strMealThumb: String,
     @ColumnInfo(name = "recipe", defaultValue = "") val strInstructions: String,
     @ColumnInfo(name = "cuisine", defaultValue = "") var strArea: String,
-    @ColumnInfo(name = "favourite", defaultValue = "false") var favourite: String
+    @ColumnInfo(name = "favourite", defaultValue = "0") var favourite: String
         )
 
 data class DescriptionRecipe(
