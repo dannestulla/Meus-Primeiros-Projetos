@@ -33,7 +33,7 @@
                 />
 
             <ImageView
-                android:id="@+id/imageView18"
+                android:id="@+id/instructionsbackbutton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28dp"
@@ -43,7 +43,7 @@
                 android:src="@drawable/back" />
 
             <ImageView
-                android:id="@+id/imageView21"
+                android:id="@+id/deliveritbutton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"

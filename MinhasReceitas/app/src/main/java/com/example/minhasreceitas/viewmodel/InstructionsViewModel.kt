@@ -54,6 +54,7 @@ class InstructionsViewModel @Inject constructor(
 
     private suspend fun getRecipeInstructions(instructions: String) {
         val response2 = repository.getRecipe(instructions)
+
         if (response2.isSuccessful) {
             val body = response2.body()!!.meals[0]
             val newData = ArrayList<Meal>()

@@ -93,9 +93,13 @@ dependencies {
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.firebase:firebase-core:19.0.0'
+    implementation "com.android.volley:volley:1.2.0"
+    //Unit Test
     testImplementation "com.google.truth:truth:1.1.2"
 
-    implementation 'io.github.elye:loaderviewlibrary:3.0.0'
+
+    implementation 'com.google.android.libraries.places:places:2.4.0'
+
 
 
 

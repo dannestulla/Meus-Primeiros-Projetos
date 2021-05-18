@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.Navigation
 import com.example.minhasreceitas.R
 import com.example.minhasreceitas.data.network.Meal
 import com.example.minhasreceitas.databinding.FragmentInstructionsBinding
@@ -38,7 +39,7 @@ class InstructionsFragment : Fragment() {
         viewModel.isLoaded.postValue(false)
         viewModel.getInstructions(currentMeal[0].idMeal)
         viewModel.checkIfFavourited()
-
+        val navController = Navigation.findNavController(view)
 
         //DISPLAY ITEMS, VISIBILITY ON/OFF
         viewModel.isLoaded.observe(viewLifecycleOwner, {
@@ -88,6 +89,13 @@ class InstructionsFragment : Fragment() {
                 Toast.makeText(context, "Removed from Favourites!", Toast.LENGTH_LONG).show()
             }
         }
+        binding.deliveritbutton.setOnClickListener {
+            navController.navigate(R.id.action_descriptionFragment_to_mapsFragment)
+        }
+        binding.instructionsbackbutton.setOnClickListener {
+            navController.navigate(R.id.action_descriptionFragment_to_recipeFragment)
+        }
+
         //CHECK IF IS IN FAVOURITES
         viewModel.isFavourited.observe(viewLifecycleOwner, {
             if (it == true) {
