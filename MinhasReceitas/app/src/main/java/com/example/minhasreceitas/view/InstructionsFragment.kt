@@ -47,22 +47,22 @@ class InstructionsFragment : Fragment() {
                 binding.apply {
                     addtofavourites.isVisible = true
                     progress.isVisible = false
-                    textView27.isVisible = true
-                    textView26.isVisible = true
-                    textView25.isVisible = true
-                    textView22.isVisible = true
-                    textView28.isVisible = true
+                    recipetitle.isVisible = true
+                    cuisinetype.isVisible = true
+                    instructionstext.isVisible = true
+                    instructionsfulltext.isVisible = true
+                    addtofavourites.isVisible = true
                     recipeimage.isVisible = true
-                    textView17.isVisible = true
+                    textfavourite.isVisible = true
                 }
             }
         }
-    )
+        )
         viewModel.descriptionData.apply {
             observe(viewLifecycleOwner, {
-                binding.textView27.text = it[0].strInstructions
-                binding.textView25.text = it[0].strArea
-                binding.textView22.text = it[0].strMeal
+                binding.instructionsfulltext.text = it[0].strInstructions
+                binding.cuisinetype.text = it[0].strArea
+                binding.recipetitle.text = it[0].strMeal
                 Picasso.get().load(it[0].strMealThumb).into(binding.recipeimage)
                 //Create item to be favourited
                 viewModel.favouriteItem = Meal(
@@ -105,7 +105,6 @@ class InstructionsFragment : Fragment() {
             }
         })
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

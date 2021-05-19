@@ -1,10 +1,10 @@
 package com.example.minhasreceitas.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import com.example.minhasreceitas.R
@@ -20,11 +20,10 @@ class RegisterFragment : Fragment() {
     private val binding get() = _binding!!
     val viewModel by activityViewModels<AuthViewModel>()
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentRegisterBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -32,31 +31,27 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val navController = Navigation.findNavController(view)
-        val user = Firebase.auth.currentUser
         viewModel.auth = FirebaseAuth.getInstance()
         viewModel.auth = Firebase.auth
+        binding.register.setOnClickListener {
+            viewModel.createAccount(
+                binding.editTextEmail.text.toString(),
+                binding.passwordfield.text.toString(),
+                binding.validadepassword.text.toString()
+            )
+        }
 
-        binding.register.setOnClickListener { viewModel.createAccount(
-            binding.editTextEmail.text.toString(),
-            binding.editTextPassword2.text.toString(),
-            binding.editTextPasswordValidate.text.toString())}
-
-        binding.textView4.setOnClickListener { navController.navigate(R.id.action_registerFragment_to_loginFragment)}
+        binding.alreadyregistered.setOnClickListener { navController.navigate(R.id.action_registerFragment_to_loginFragment) }
         viewModel.fragmentDestination.observe(viewLifecycleOwner, {
             when (it) {
                 "registerToLogin" -> navController.navigate(R.id.action_loginFragment_to_registerFragment)
                 "registerToCuisine" -> navController.navigate(R.id.action_registerFragment_to_cuisineFragment)
             }
         })
-
-
-
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
-
-
 }

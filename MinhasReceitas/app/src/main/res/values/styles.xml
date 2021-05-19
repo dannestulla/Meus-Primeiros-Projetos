@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="OrangeButton">
+        <item name="android:backgroundTint">@color/orange</item>
+    </style>
+
+    <style name="MainTitle">
+        <item name="android:fontFamily">@font/colortube_regular</item>
+        <item name="android:textColor">@color/beige</item>
+        <item name="android:textSize">@dimen/font_larger</item>
+    </style>
+
+    <style name="SubTitle">
+        <item name="android:fontFamily">@font/hellixregular</item>
+        <item name="android:textColor">@color/beige</item>
+        <item name="android:textSize">@dimen/font_large</item>
+    </style>
+
+    <style name="AuthenticationFields">
+        <item name="android:ems">14</item>
+        <item name="android:textColorHint">@color/beige</item>
+        <item name="backgroundTint">@color/transparent</item>
+        <item name="android:fontFamily">@font/hellixregular</item>
+        <item name="android:textColor">@color/beige</item>
+        <item name="android:textSize">@dimen/font_normal</item>
+    </style>
+
+    <style name="TextLogin">
+        <item name="android:elevation">2dp</item>
+        <item name="android:fontFamily">@font/hellixregular</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/font_normal</item>
+    </style>
+</resources>

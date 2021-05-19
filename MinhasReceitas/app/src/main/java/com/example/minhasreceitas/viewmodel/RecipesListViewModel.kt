@@ -15,8 +15,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RecipesListViewModel @Inject constructor(
-    private val app: Application,
-    private val repository: ReceitasRepository
+    val app: Application,
+    val repository: ReceitasRepository
 ) : ViewModel() {
     companion object {
         var mealsList = ArrayList<Meal>()
@@ -25,11 +25,10 @@ class RecipesListViewModel @Inject constructor(
 
     lateinit var cuisineType: String
     val mAdapter = RecipesAdapter()
-    var favouritesList = ArrayList<Meal>()
+    private var favouritesList = ArrayList<Meal>()
     var favButtonRecipeList = false
     var recyclerViewLiveData: MutableLiveData<ArrayList<Meal>> = MutableLiveData()
-    lateinit var dbCuisine: List<Meal>
-
+    private lateinit var dbCuisine: List<Meal>
 
     fun databaseOrAPI(cuisine: String) {
         CoroutineScope(IO).launch {
@@ -70,7 +69,6 @@ class RecipesListViewModel @Inject constructor(
         recyclerViewLiveData.postValue(al)
     }
 
-
     suspend fun saveToDB(mealList: ArrayList<Meal>) {
         repository.saveToDB(mealList)
     }
@@ -87,7 +85,5 @@ class RecipesListViewModel @Inject constructor(
         mAdapter.submitList(favouritesList)
         favButtonRecipeList = true
     }
-
-
 }
 

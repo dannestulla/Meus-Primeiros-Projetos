@@ -6,18 +6,18 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.location.Location
-import androidx.fragment.app.Fragment
-
 import android.os.Bundle
 import android.util.Log
-import android.view.*
+import android.view.LayoutInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.Fragment
 import com.example.minhasreceitas.R
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -43,7 +43,6 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
     private var likelyPlaceAttributions: Array<List<*>?> = arrayOfNulls(0)
     private var likelyPlaceLatLngs: Array<LatLng?> = arrayOfNulls(0)
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -58,7 +57,8 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         Places.initialize(requireActivity().applicationContext, getString(R.string.google_maps_key))
         placesClient = Places.createClient(requireContext())
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireActivity().applicationContext)
+        fusedLocationProviderClient =
+            LocationServices.getFusedLocationProviderClient(requireActivity().applicationContext)
         getLocationPermission()
 
         /*val callback = OnMapReadyCallback { googleMap ->
@@ -71,44 +71,53 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         mapFragment?.getMapAsync(callback)*/
 
 
-
-
     }
+
     private fun getLocationPermission() {
-        Log.d("Fun","getLocationPermission()")
+        Log.d("Fun", "getLocationPermission()")
         /*
          * Request location permission, so that we can get the location of the
          * device. The result of the permission request is handled by a callback,
          * onRequestPermissionsResult.
          */
-        if (ContextCompat.checkSelfPermission(requireActivity().applicationContext,
-                Manifest.permission.ACCESS_FINE_LOCATION)
-            == PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(
+                requireActivity().applicationContext,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            )
+            == PackageManager.PERMISSION_GRANTED
+        ) {
             locationPermissionGranted = true
         } else {
-            ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-                PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION)
+            ActivityCompat.requestPermissions(
+                requireActivity(), arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION
+            )
         }
     }
-    override fun onRequestPermissionsResult(requestCode: Int,
-                                            permissions: Array<String>,
-                                            grantResults: IntArray) {
-        Log.d("Fun","onRequestPermissionsResult()")
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        Log.d("Fun", "onRequestPermissionsResult()")
         locationPermissionGranted = false
         when (requestCode) {
             PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION -> {
 
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.isNotEmpty() &&
-                    grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    grantResults[0] == PackageManager.PERMISSION_GRANTED
+                ) {
                     locationPermissionGranted = true
                 }
             }
         }
         updateLocationUI()
     }
+
     private fun updateLocationUI() {
-        Log.d("Fun","updateLocationUI()")
+        Log.d("Fun", "updateLocationUI()")
         if (map == null) {
             return
         }
@@ -128,7 +137,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        Log.d("Fun","onOptionsItemSelected()")
+        Log.d("Fun", "onOptionsItemSelected()")
 
 
         if (item.itemId == R.id.option_get_place) {
@@ -136,9 +145,10 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         }
         return true
     }
+
     @SuppressLint("MissingPermission")
     private fun showCurrentPlace() {
-        Log.d("Fun","showCurrentPlace()")
+        Log.d("Fun", "showCurrentPlace()")
         if (map == null) {
             return
         }
@@ -157,11 +167,12 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
                     val likelyPlaces = task.result
 
                     // Set the count, handling cases where less than 5 entries are returned.
-                    val count = if (likelyPlaces != null && likelyPlaces.placeLikelihoods.size < M_MAX_ENTRIES) {
-                        likelyPlaces.placeLikelihoods.size
-                    } else {
-                        M_MAX_ENTRIES
-                    }
+                    val count =
+                        if (likelyPlaces != null && likelyPlaces.placeLikelihoods.size < M_MAX_ENTRIES) {
+                            likelyPlaces.placeLikelihoods.size
+                        } else {
+                            M_MAX_ENTRIES
+                        }
                     var i = 0
                     likelyPlaceNames = arrayOfNulls(count)
                     likelyPlaceAddresses = arrayOfNulls(count)
@@ -193,9 +204,10 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
             // Add a default marker, because the user hasn't selected a place.
             map?.addMarker(
                 MarkerOptions()
-                .title(getString(R.string.default_info_title))
-                .position(defaultLocation)
-                .snippet(getString(R.string.default_info_snippet)))
+                    .title(getString(R.string.default_info_title))
+                    .position(defaultLocation)
+                    .snippet(getString(R.string.default_info_snippet))
+            )
 
             // Prompt the user for permission.
             getLocationPermission()
@@ -203,9 +215,10 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
     }
 
     private fun openPlacesDialog() {
-        Log.d("Fun","openPlacesDialog()")
-              // Ask the user to choose the place where they are now.
-            val listener = DialogInterface.OnClickListener { dialog, which -> // The "which" argument contains the position of the selected item.
+        Log.d("Fun", "openPlacesDialog()")
+        // Ask the user to choose the place where they are now.
+        val listener =
+            DialogInterface.OnClickListener { dialog, which -> // The "which" argument contains the position of the selected item.
                 val markerLatLng = likelyPlaceLatLngs[which]
                 var markerSnippet = likelyPlaceAddresses[which]
                 if (likelyPlaceAttributions[which] != null) {
@@ -217,26 +230,32 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
 
                 // Add a marker for the selected place, with an info window
                 // showing information about that place.
-                map?.addMarker(MarkerOptions()
-                    .title(likelyPlaceNames[which])
-                    .position(markerLatLng!!)
-                    .snippet(markerSnippet))
+                map?.addMarker(
+                    MarkerOptions()
+                        .title(likelyPlaceNames[which])
+                        .position(markerLatLng!!)
+                        .snippet(markerSnippet)
+                )
 
                 // Position the map's camera at the location of the marker.
-                map?.moveCamera(CameraUpdateFactory.newLatLngZoom(markerLatLng,
-                    DEFAULT_ZOOM.toFloat()))
+                map?.moveCamera(
+                    CameraUpdateFactory.newLatLngZoom(
+                        markerLatLng,
+                        DEFAULT_ZOOM.toFloat()
+                    )
+                )
             }
 
-            // Display the dialog.
-            AlertDialog.Builder(context)
-                .setTitle(R.string.pick_place)
-                .setItems(likelyPlaceNames, listener)
-                .show()
-        }
+        // Display the dialog.
+        AlertDialog.Builder(context)
+            .setTitle(R.string.pick_place)
+            .setItems(likelyPlaceNames, listener)
+            .show()
+    }
 
 
     override fun onMapReady(map: GoogleMap) {
-        Log.d("Fun","onMapReady()")
+        Log.d("Fun", "onMapReady()")
 
         this.map = map
 
@@ -249,7 +268,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
 
 
     private fun getDeviceLocation() {
-        Log.d("Fun","getDeviceLocation()")
+        Log.d("Fun", "getDeviceLocation()")
 
         /*
          * Get the best and most recent location of the device, which may be null in rare
@@ -263,15 +282,22 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
                         // Set the map's camera position to the current location of the device.
                         lastKnownLocation = task.result
                         if (lastKnownLocation != null) {
-                            map?.moveCamera(CameraUpdateFactory.newLatLngZoom(
-                                LatLng(lastKnownLocation!!.latitude,
-                                    lastKnownLocation!!.longitude), DEFAULT_ZOOM.toFloat()))
+                            map?.moveCamera(
+                                CameraUpdateFactory.newLatLngZoom(
+                                    LatLng(
+                                        lastKnownLocation!!.latitude,
+                                        lastKnownLocation!!.longitude
+                                    ), DEFAULT_ZOOM.toFloat()
+                                )
+                            )
                         }
                     } else {
                         Log.d(TAG, "Current location is null. Using defaults.")
                         Log.e(TAG, "Exception: %s", task.exception)
-                        map?.moveCamera(CameraUpdateFactory
-                            .newLatLngZoom(defaultLocation, DEFAULT_ZOOM.toFloat()))
+                        map?.moveCamera(
+                            CameraUpdateFactory
+                                .newLatLngZoom(defaultLocation, DEFAULT_ZOOM.toFloat())
+                        )
                         map?.uiSettings?.isMyLocationButtonEnabled = false
                     }
                 }
@@ -280,7 +306,6 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
             Log.e("Exception: %s", e.message, e)
         }
     }
-
 
     companion object {
         private const val DEFAULT_ZOOM = 15

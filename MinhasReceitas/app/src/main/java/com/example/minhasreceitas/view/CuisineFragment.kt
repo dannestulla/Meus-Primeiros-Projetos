@@ -11,7 +11,6 @@ import com.example.minhasreceitas.R
 import com.example.minhasreceitas.databinding.FragmentCuisineBinding
 import com.example.minhasreceitas.viewmodel.RecipesListViewModel
 
-
 class CuisineFragment : Fragment() {
     val viewModel by activityViewModels<RecipesListViewModel>()
     private var _binding: FragmentCuisineBinding? = null
@@ -20,7 +19,7 @@ class CuisineFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentCuisineBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -29,32 +28,32 @@ class CuisineFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val navController = Navigation.findNavController(view)
         binding.apply {
-            imageView3.setOnClickListener {
+            japanese.setOnClickListener {
                 viewModel.mAdapter.submitList(emptyList())
                 viewModel.databaseOrAPI("japanese")
                 navController.navigate(R.id.action_cuisineFragment_to_recipeFragment)
             }
-            imageView4.setOnClickListener {
+            italian.setOnClickListener {
                 viewModel.mAdapter.submitList(emptyList())
                 viewModel.databaseOrAPI("italian")
                 navController.navigate(R.id.action_cuisineFragment_to_recipeFragment)
             }
-            imageView5.setOnClickListener {
+            vietnamese.setOnClickListener {
                 viewModel.mAdapter.submitList(emptyList())
                 viewModel.databaseOrAPI("vietnamese")
                 navController.navigate(R.id.action_cuisineFragment_to_recipeFragment)
             }
-            imageView6.setOnClickListener {
+            american.setOnClickListener {
                 viewModel.mAdapter.submitList(emptyList())
                 viewModel.databaseOrAPI("american")
                 navController.navigate(R.id.action_cuisineFragment_to_recipeFragment)
             }
-            imageView8.setOnClickListener {
+            chinese.setOnClickListener {
                 viewModel.mAdapter.submitList(emptyList())
                 viewModel.databaseOrAPI("chinese")
                 navController.navigate(R.id.action_cuisineFragment_to_recipeFragment)
             }
-            imageView11.setOnClickListener {
+            backbutton.setOnClickListener {
                 viewModel.mAdapter.submitList(emptyList())
                 navController.navigate(R.id.action_cuisineFragment_to_loginFragment)
             }

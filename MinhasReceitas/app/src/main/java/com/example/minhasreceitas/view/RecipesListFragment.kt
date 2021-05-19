@@ -22,8 +22,6 @@ class RecipesListFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel by activityViewModels<RecipesListViewModel>()
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,11 +33,9 @@ class RecipesListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val navController = Navigation.findNavController(view)
-        binding.imageView15.setOnClickListener {
+        binding.backbuttonrecipes.setOnClickListener {
             navController.navigate(R.id.action_recipeFragment_to_cuisineFragment)
         }
-
-        //viewModel.databaseOrAPI(viewModel.cuisineType)
         binding.recyclerView.apply {
             adapter = viewModel.mAdapter
             layoutManager = LinearLayoutManager(context, VERTICAL, false)
@@ -55,10 +51,8 @@ class RecipesListFragment : Fragment() {
                 it.setBackgroundResource(R.drawable.favoriteoff)
             }
         }
-
-        viewModel.recyclerViewLiveData.observe( viewLifecycleOwner,
+        viewModel. recyclerViewLiveData.observe(viewLifecycleOwner,
             { viewModel.mAdapter.submitList(it) })
-
     }
 
     override fun onDestroyView() {
@@ -67,5 +61,4 @@ class RecipesListFragment : Fragment() {
         viewModel.recyclerViewLiveData = MutableLiveData()
         _binding = null
     }
-
 }

@@ -1,184 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.InstructionsFragment"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:fillViewport="true"
+    tools:context=".view.InstructionsFragment">
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="168dp"
-        tools:layout_editor_absoluteY="62dp"
-        android:fillViewport="true">
+        android:layout_height="wrap_content">
 
-        <RelativeLayout
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:indeterminateTint="@color/orange"
+            android:visibility="visible" />
 
+        <ImageView
+            android:id="@+id/instructionsbackbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginBottom="27dp"
+            android:contentDescription="@string/backbutton"
+            android:src="@drawable/back" />
+
+        <ImageView
+            android:id="@+id/deliveritbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="308dp"
+            android:layout_marginLeft="308dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:src="@drawable/hotelbell" />
+
+        <TextView
+            android:id="@+id/findrestaurant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="200dp"
+            android:layout_marginLeft="270dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/hellixblack"
+            android:text="@string/deliver_it"
+            android:textColor="@color/orange"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/recipetitle"
+            android:layout_width="363dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="100dp"
+            android:fontFamily="@font/abrilfatfaceregular"
+            android:hint="@string/title"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:visibility="invisible"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/cuisinetype"
+            android:layout_width="96dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/recipetitle"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="29dp"
+            android:layout_marginLeft="29dp"
+            android:layout_marginTop="137dp"
+            android:hint="@string/cuisine"
+            android:textColor="@color/black"
+            android:visibility="invisible"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/instructionstext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="320dp"
+            android:fontFamily="@font/hellixregular"
+            android:text="@string/instructions"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:visibility="invisible"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/recipeimage"
+            android:layout_width="209dp"
+            android:layout_height="153dp"
+            android:layout_below="@+id/recipetitle"
+            android:layout_marginStart="78dp"
+            android:layout_marginLeft="78dp"
+            android:layout_marginTop="21dp"
+            android:layout_toEndOf="@+id/textfavourite"
+            android:layout_toRightOf="@+id/textfavourite"
+            android:visibility="invisible"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/instructionsfulltext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="@id/instructionstext"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="350dp"
+            android:layout_marginEnd="30dp"
+            android:hint="@string/description"
+            android:justificationMode="inter_word"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:visibility="invisible"
+            tools:visibility="visible" />
 
-            <ProgressBar
-                android:indeterminateTint="@color/orange"
+        <ImageView
+            android:id="@+id/addtofavourites"
+            android:layout_width="29dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="190dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/favoriteoff"
+            android:visibility="invisible"
+            tools:visibility="visible" />
 
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/progress"
+        <TextView
+            android:id="@+id/textfavourite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/recipetitle"
+            android:layout_marginStart="11dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="60dp"
+            android:layout_toEndOf="@+id/addtofavourites"
+            android:layout_toRightOf="@+id/addtofavourites"
+            android:text="@string/favourite"
+            android:textColor="@color/black"
+            android:visibility="invisible"
+            tools:visibility="visible" />
 
-                android:visibility="visible"
-                />
+    </RelativeLayout>
+</ScrollView>
 
-            <ImageView
-                android:id="@+id/instructionsbackbutton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginLeft="28dp"
-                android:layout_marginTop="48dp"
-                android:layout_marginBottom="27dp"
-                android:src="@drawable/back" />
-
-            <ImageView
-                android:id="@+id/deliveritbutton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="308dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginRight="30dp"
-                android:src="@drawable/hotelbell"
-                android:layout_marginStart="308dp" />
-
-            <TextView
-
-                android:id="@+id/textView28"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="250dp"
-                android:layout_marginLeft="270dp"
-                android:layout_marginTop="40dp"
-                android:fontFamily="@font/hellixblack"
-                android:text="@string/deliver_it"
-                android:textColor="@color/orange"
-                android:textSize="17sp"
-                />
-
-            <TextView
-                android:hint="@string/title"
-                tools:visibility="visible"
-                android:visibility="invisible"
-                android:id="@+id/textView22"
-                android:layout_width="363dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="100dp"
-                android:fontFamily="@font/abrilfatfaceregular"
-                android:textColor="@color/black"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/textView25"
-                android:layout_width="96dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textView22"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_marginStart="29dp"
-                android:layout_marginLeft="29dp"
-                android:layout_marginTop="137dp"
-                android:hint="@string/cuisine"
-
-                android:textColor="@color/black"
-                android:visibility="invisible"
-                tools:visibility="visible" />
-
-            <TextView
-                android:text="@string/instructions"
-                android:visibility="invisible"
-                tools:visibility="visible"
-                android:id="@+id/textView26"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="320dp"
-                android:fontFamily="@font/hellixregular"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
-
-            <ImageView
-                android:id="@+id/recipeimage"
-                android:layout_width="209dp"
-
-                android:layout_height="153dp"
-                android:layout_below="@+id/textView22"
-                android:layout_marginStart="78dp"
-                android:layout_marginLeft="78dp"
-                android:layout_marginTop="21dp"
-                android:layout_toEndOf="@+id/textView17"
-
-                android:layout_toRightOf="@+id/textView17"
-                android:visibility="invisible"
-                tools:visibility="visible" />
-
-            <TextView
-                android:textColor="@color/black"
-                android:hint="@string/description"
-
-                android:visibility="invisible"
-                tools:visibility="visible"
-                android:id="@+id/textView27"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="@id/textView26"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="350dp"
-                android:layout_marginEnd="30dp"
-                android:justificationMode="inter_word"
-                android:textSize="16sp" />
-
-            <ImageView
-                android:id="@+id/addtofavourites"
-
-                android:layout_width="29dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="190dp"
-                android:adjustViewBounds="true"
-                android:src="@drawable/favoriteoff"
-                android:visibility="invisible"
-                tools:visibility="visible" />
-
-            <TextView
-                android:id="@+id/textView17"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_below="@+id/textView22"
-                android:layout_marginStart="11dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginTop="60dp"
-                android:layout_toEndOf="@+id/addtofavourites"
-                android:layout_toRightOf="@+id/addtofavourites"
-                android:text="@string/favourite"
-                android:textColor="@color/black"
-                android:visibility="invisible"
-                tools:visibility="visible" />
-
-        </RelativeLayout>
-    </ScrollView>
-
-</RelativeLayout>

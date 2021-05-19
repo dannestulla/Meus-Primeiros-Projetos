@@ -7,8 +7,8 @@ import retrofit2.Response
 import javax.inject.Inject
 
 class ReceitasRepository @Inject constructor(
-        private val api: APIrequests,
-        db: ReceitasDatabase,
+    private val api: APIrequests,
+    db: ReceitasDatabase,
 ) {
     private val database: ReceitasDao = db.receitasDao()
 
@@ -44,14 +44,8 @@ class ReceitasRepository @Inject constructor(
         return database.loadCuisineDB(cuisine)
     }
 
-    suspend fun loadFavouriteFromDB(favourite : String) : List<Meal> {
+    suspend fun loadFavouriteFromDB(favourite: String): List<Meal> {
         Log.d("Repository", "DB: Loading favourites list")
         return database.findFavouriteRecipes(favourite)
     }
-    /*suspend fun saveFavouriteToDB(favourite : String) : List<Meal> {
-        Log.d("Repository", "DB: Loading favourites list")
-        return database.saveFavouriteToDB(favourite)
-    }*/
-
-
 }

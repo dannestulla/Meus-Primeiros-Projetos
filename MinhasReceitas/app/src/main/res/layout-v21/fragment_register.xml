@@ -5,148 +5,126 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".view.MainActivity">
-
+    tools:context=".view.MainActivity"
+    >
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="219dp"
-        android:layout_height="26dp"
-        android:fontFamily="@font/hellixregular"
+        android:id="@+id/textregister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Register"
-        android:textColor="@color/white"
-        android:textSize="14dp"
+        android:text="@string/register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/SubTitle"
+        />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="315dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="220dp"
-        android:backgroundTint="@color/orange"
+        android:id="@+id/registerbutton"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/button_margin_from_login_frame"
+        android:layout_marginBottom="19dp"
+        app:layout_constraintBottom_toTopOf="@+id/alreadyregistered"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imputfieldsbackground"
+        style="@style/OrangeButton"
+        />
 
     <TextView
         android:id="@+id/register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:elevation="20dp"
-        android:fontFamily="@font/hellixregular"
-        android:text="Register"
-        android:textColor="@color/white"
-        android:textSize="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/hellixregular"
-        android:text="Already Registered?"
-        android:textColor="@color/white"
-        android:textSize="16dp"
-
+        android:text="@string/register"
+        app:layout_constraintBottom_toBottomOf="@+id/registerbutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        style="@style/TextLogin"
+        />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/alreadyregistered"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="292dp"
-        android:fontFamily="@font/colortube_regular"
-        android:text="My Recipes"
-        android:textColor="#DCDCC9"
-        android:textSize="25sp"
+        android:layout_marginBottom="@dimen/last_item_margin_to_botton"
+        android:text="@string/already_registered"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/TextLogin"
+        />
+
+    <TextView
+        android:id="@+id/texttitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/main_title_margin_top"
+        android:text="@string/my_recipes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/MainTitle"
+        />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imputfieldsbackground"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginBottom="26dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:srcCompat="@drawable/register_image" />
+        android:layout_marginTop="@dimen/login_frame_margin_from_subtitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textregister"
+        app:srcCompat="@drawable/register_image"
+        />
 
     <EditText
-        android:id="@+id/editTextPasswordValidate"
-        android:layout_width="203dp"
-
-
-        android:layout_height="42dp"
-        android:backgroundTint="#00000000"
-        android:ems="10"
+        android:id="@+id/validadepassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/confirm_password"
         android:inputType="textPassword"
-        android:hint="Confirm Password"
-        android:fontFamily="@font/hellixregular"
-
-
-        android:textColorHint="@color/beije"
-
-        android:textColor="@color/white"
-        android:textSize="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="@+id/imputfieldsbackground"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.65"
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/AuthenticationFields"
+        />
 
     <EditText
-        android:id="@+id/editTextPassword2"
-        android:layout_width="203dp"
-
-
-        android:layout_height="42dp"
-        android:layout_marginBottom="64dp"
-        android:backgroundTint="#00000000"
-        android:ems="10"
-        android:hint="Password"
-        android:fontFamily="@font/hellixregular"
-
+        android:id="@+id/passwordfield"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/login_fields_margin_botton"
+        android:hint="@string/password"
         android:inputType="textPassword"
-        android:textColor="@color/beije"
-        android:textSize="16dp"
-        android:textColorHint="@color/beije"
-
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintBottom_toTopOf="@+id/validadepassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.65"
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/AuthenticationFields"
+        />
 
     <EditText
         android:id="@+id/editTextEmail"
-        android:layout_width="204dp"
-        android:layout_height="43dp"
-        android:layout_marginBottom="20dp"
-        android:backgroundTint="#00000000"
-        android:ems="10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/login_fields_margin_botton"
+        android:autofillHints="@string/email"
         android:fontFamily="@font/hellixregular"
-        android:hint="Email"
+        android:hint="@string/user_name"
         android:inputType="textEmailAddress"
-
-
-        android:textColor="@color/white"
-        android:textColorHint="@color/beije"
-        android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextPassword2"
+        app:layout_constraintBottom_toTopOf="@+id/passwordfield"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        app:layout_constraintHorizontal_bias="0.65"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imputfieldsbackground"
+        style="@style/AuthenticationFields"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

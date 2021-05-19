@@ -15,7 +15,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
-    
+
     @Provides
     @Singleton
     fun provideRetrofit(): Retrofit =
@@ -26,12 +26,12 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideAPIrequests(retrofit : Retrofit) : APIrequests =
+    fun provideAPIrequests(retrofit: Retrofit): APIrequests =
         retrofit.create(APIrequests::class.java)
 
     @Provides
     @Singleton
-    fun provideDatabase(app : Application) : ReceitasDatabase =
+    fun provideDatabase(app: Application): ReceitasDatabase =
         Room.databaseBuilder(app, ReceitasDatabase::class.java, "receitas")
             .build()
 }

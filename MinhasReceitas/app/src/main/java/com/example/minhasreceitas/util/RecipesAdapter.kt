@@ -3,6 +3,7 @@ package com.example.minhasreceitas.util
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -14,7 +15,9 @@ import com.example.minhasreceitas.viewmodel.InstructionsViewModel.Companion.curr
 import com.example.minhasreceitas.viewmodel.RecipesListViewModel
 import com.squareup.picasso.Picasso
 
-class RecipesAdapter :
+class RecipesAdapter(
+    private val listener: OnItemClickListener
+) :
     ListAdapter<Meal, RecipesAdapter.RecipesAdapterViewHolder>(ReceitasComparator()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipesAdapterViewHolder {
@@ -30,7 +33,6 @@ class RecipesAdapter :
         }
     }
 
-
     class RecipesAdapterViewHolder(private val binding: RecipeCardHorizontalBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -40,7 +42,6 @@ class RecipesAdapter :
                 Picasso.get().load(meal.strMealThumb).into(imageView25)
             }
         }
-
         init {
             itemView.setOnClickListener { v: View ->
                 currentMeal.add(RecipesListViewModel.mealsList[adapterPosition])
@@ -57,6 +58,10 @@ class RecipesAdapter :
 
         override fun areContentsTheSame(oldItem: Meal, newItem: Meal) =
             oldItem == newItem
+    }
+
+    interface OnItemClickListener {
+
     }
 }
 

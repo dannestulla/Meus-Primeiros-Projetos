@@ -1,6 +1,5 @@
 package com.example.minhasreceitas.viewmodel
 
-import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.minhasreceitas.data.network.Meal
@@ -15,12 +14,12 @@ import kotlin.collections.ArrayList
 
 @HiltViewModel
 class InstructionsViewModel @Inject constructor(
-    private val app: Application,
     private val repository: ReceitasRepository
 ) : ViewModel() {
     companion object {
         var currentMeal = ArrayList<Meal>()
     }
+
     var isLoaded = MutableLiveData<Boolean>()
     var descriptionData = MutableLiveData<ArrayList<Meal>>()
     var favButtonFromInstructions = false
@@ -54,7 +53,6 @@ class InstructionsViewModel @Inject constructor(
 
     private suspend fun getRecipeInstructions(instructions: String) {
         val response2 = repository.getRecipe(instructions)
-
         if (response2.isSuccessful) {
             val body = response2.body()!!.meals[0]
             val newData = ArrayList<Meal>()
@@ -121,8 +119,6 @@ class InstructionsViewModel @Inject constructor(
             }
         }
     }
-
-
 }
 
 

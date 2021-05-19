@@ -27,7 +27,6 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
@@ -37,24 +36,22 @@ class LoginFragment : Fragment() {
         viewModel.auth = FirebaseAuth.getInstance()
         viewModel.auth = Firebase.auth
         binding.apply {
-            textView6.setOnClickListener { navController.navigate(R.id.action_loginFragment_to_registerFragment) }
-            button2.setOnClickListener {
-                val password = editTextTextPassword.text.toString()
-                val email = editTextTextPersonName.text.toString()
-                viewModel.signIn(email, password)}
-            resetpassword.setOnClickListener { viewModel.passwordReset(binding.editTextTextPersonName.text.toString()) }
-            binding.editTextTextPersonName.setText(viewModel.loadSavedPref("Email"))
-            binding.editTextTextPassword.setText(viewModel.loadSavedPref("Password"))
-
+            needtoregister.setOnClickListener { navController.navigate(R.id.action_loginFragment_to_registerFragment) }
+            loginbutton.setOnClickListener {
+                val password = password.text.toString()
+                val email = email.text.toString()
+                viewModel.signIn(email, password)
+            }
+            resetpassword.setOnClickListener { viewModel.passwordReset(binding.email.text.toString()) }
+            binding.email.setText(viewModel.loadSavedPref("Email"))
+            binding.password.setText(viewModel.loadSavedPref("Password"))
         }
-
 
         viewModel.fragmentDestination.observe(viewLifecycleOwner, {
             when (it) {
                 "loginToCuisine" -> navController.navigate(R.id.action_loginFragment_to_cuisineFragment)
             }
         })
-
     }
 
     override fun onDestroyView() {

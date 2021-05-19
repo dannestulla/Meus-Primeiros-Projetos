@@ -1,24 +1,22 @@
 package com.example.minhasreceitas.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import com.example.minhasreceitas.R
-import com.example.minhasreceitas.viewmodel.RecipesListViewModel
 import com.example.minhasreceitas.databinding.FragmentStartScreenBinding
+import com.example.minhasreceitas.viewmodel.RecipesListViewModel
 
 
 class StartScreenFragment : Fragment() {
-    lateinit var textLogIn: TextView
 
     private var _binding: FragmentStartScreenBinding? = null
     private val binding get() = _binding!!
-
     val viewModel by activityViewModels<RecipesListViewModel>()
 
     override fun onCreateView(
@@ -32,13 +30,12 @@ class StartScreenFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val navController = Navigation.findNavController(view)
-
         binding.apply {
-            button.setOnClickListener { navController.navigate(R.id.action_startScreenFragment_to_registerFragment) }
-            textView4.setOnClickListener { navController.navigate(R.id.action_startScreenFragment_to_loginFragment) }
+            registerbutton.setOnClickListener { navController.navigate(R.id.action_startScreenFragment_to_registerFragment) }
+            alreadyregistered.setOnClickListener { navController.navigate(R.id.action_startScreenFragment_to_loginFragment) }
         }
-
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

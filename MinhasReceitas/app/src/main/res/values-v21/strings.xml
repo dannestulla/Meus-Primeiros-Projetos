@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cooking_done_the_easy_way">Cooking Done The Easy Way</string>
+    <string name="log_in">Log In</string>
+    <string name="loginframe">loginframe</string>
+</resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- font sizes -->
+    <dimen name="font_larger">25sp</dimen>
+    <dimen name="font_large">18sp</dimen>
+    <dimen name="font_normal">15sp</dimen>
+    <dimen name="font_small">12sp</dimen>
+
+    <!-- typical spacing between two views -->
+    <dimen name="main_title_margin_top">290dp</dimen>
+    <dimen name="sub_title_margin_main_title">10dp</dimen>
+    <dimen name="login_fields_frame_width">320dp</dimen>
+    <dimen name="login_fields_frame_height">110dp</dimen>
+    <dimen name="button_width">315dp</dimen>
+    <dimen name="button_margin_from_login_frame">45</dimen>
+    <dimen name="login_frame_margin_from_subtitle">50</dimen>
+    <dimen name="last_item_margin_to_botton">16</dimen>
+    <dimen name="button_to_subtitle">220</dimen>
+    <dimen name="login_fields_margin_botton">24</dimen>
+
+    <!-- typical sizes of views -->
+    <dimen name="button_height_tall">60dp</dimen>
+    <dimen name="button_height_normal">40dp</dimen>
+    <dimen name="button_height_short">32dp</dimen>
+</resources>
