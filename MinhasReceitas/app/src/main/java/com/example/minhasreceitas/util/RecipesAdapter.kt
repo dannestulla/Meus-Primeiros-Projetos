@@ -16,7 +16,7 @@ import com.example.minhasreceitas.viewmodel.RecipesListViewModel
 import com.squareup.picasso.Picasso
 
 class RecipesAdapter(
-    private val listener: OnItemClickListener
+    //private val listener: OnItemClickListener
 ) :
     ListAdapter<Meal, RecipesAdapter.RecipesAdapterViewHolder>(ReceitasComparator()) {
 

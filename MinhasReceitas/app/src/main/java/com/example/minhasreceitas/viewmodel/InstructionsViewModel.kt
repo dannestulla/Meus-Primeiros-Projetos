@@ -14,7 +14,7 @@ import kotlin.collections.ArrayList
 
 @HiltViewModel
 class InstructionsViewModel @Inject constructor(
-    private val repository: ReceitasRepository
+    val repository: ReceitasRepository
 ) : ViewModel() {
     companion object {
         var currentMeal = ArrayList<Meal>()

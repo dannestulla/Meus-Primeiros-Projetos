@@ -21,7 +21,7 @@ interface ReceitasDao {
     @Query("SELECT * FROM recipes WHERE cuisine=:cuisine")
     suspend fun loadCuisineDB(cuisine: String): List<Meal>
 
-    @Query("DELETE FROM recipes WHERE name= :s")
-    fun deleteRow(s: String)
+    @Query("DELETE FROM recipes WHERE name= :currentMealName")
+    fun deleteRow(currentMealName: String)
 
 }
