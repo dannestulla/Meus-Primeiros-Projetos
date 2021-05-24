@@ -17,8 +17,6 @@ This Android application consumes an API and display recipes. It has a favorite 
 - Unit Test
 - LiveData
 - SharedPreferences
-- Paging 3 *(In Implementation)*
-- Maps *(In Implementation)*
 
 ### Preview
 
