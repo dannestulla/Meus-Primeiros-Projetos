@@ -8,6 +8,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('C:\\Users\\dannn\\.android\\debug.keystore')
+            storePassword 'Welcometopunch1'
+            keyPassword 'Welcometopunch1'
+            keyAlias 'androiddebugkey'
+        }
+    }
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
         buildFeatures  {

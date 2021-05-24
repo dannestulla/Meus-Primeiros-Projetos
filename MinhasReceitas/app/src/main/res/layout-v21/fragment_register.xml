@@ -116,7 +116,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/login_fields_margin_botton"
-        android:autofillHints="@string/email"
         android:fontFamily="@font/hellixregular"
         android:hint="@string/user_name"
         android:inputType="textEmailAddress"

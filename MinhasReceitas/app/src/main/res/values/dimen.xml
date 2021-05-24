@@ -12,11 +12,11 @@
     <dimen name="login_fields_frame_width">320dp</dimen>
     <dimen name="login_fields_frame_height">110dp</dimen>
     <dimen name="button_width">315dp</dimen>
-    <dimen name="button_margin_from_login_frame">45</dimen>
-    <dimen name="login_frame_margin_from_subtitle">50</dimen>
-    <dimen name="last_item_margin_to_botton">16</dimen>
-    <dimen name="button_to_subtitle">220</dimen>
-    <dimen name="login_fields_margin_botton">24</dimen>
+    <dimen name="button_margin_from_login_frame">45dp</dimen>
+    <dimen name="login_frame_margin_from_subtitle">50dp</dimen>
+    <dimen name="last_item_margin_to_botton">16dp</dimen>
+    <dimen name="button_to_subtitle">220dp</dimen>
+    <dimen name="login_fields_margin_botton">24dp</dimen>
 
     <!-- typical sizes of views -->
     <dimen name="button_height_tall">60dp</dimen>
