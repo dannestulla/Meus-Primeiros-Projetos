@@ -1,33 +1,31 @@
 package com.example.myfavouritestracks
 
-import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
-import com.spotify.sdk.android.authentication.AuthenticationRequest
-import android.os.Bundle
-import com.spotify.sdk.android.authentication.AuthenticationResponse
-import com.spotify.sdk.android.authentication.AuthenticationClient
 import android.content.Intent
 import android.net.Uri
-import com.spotify.android.appremote.api.SpotifyAppRemote
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import com.example.myfavouritestracks.retrofit.MainPojo
-import androidx.annotation.RequiresApi
 import android.os.Build
+import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.myfavouritestracks.databinding.MusicCardBinding
 import com.example.myfavouritestracks.databinding.MyFavouritesTracksBinding
-
 import com.example.myfavouritestracks.recyclerview.CardData
 import com.example.myfavouritestracks.recyclerview.CustomAdapter
 import com.example.myfavouritestracks.retrofit.JsonPlaceHolderApi
-
+import com.example.myfavouritestracks.retrofit.MainPojo
+import com.spotify.android.appremote.api.SpotifyAppRemote
+import com.spotify.sdk.android.authentication.AuthenticationClient
+import com.spotify.sdk.android.authentication.AuthenticationRequest
+import com.spotify.sdk.android.authentication.AuthenticationResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.ArrayList
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
 import java.util.regex.Pattern
 
 class MyFavouritesTracks : AppCompatActivity() {
@@ -43,18 +41,21 @@ class MyFavouritesTracks : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = MyFavouritesTracksBinding.inflate(layoutInflater)
         bindingCard = MusicCardBinding.inflate(layoutInflater)
-        val view: View = binding!!.root
+        val view = binding!!.root
         setContentView(view)
-        binding!!.button3!!.setOnClickListener { v: View? -> jsonParse() }
-        builder = AuthenticationRequest.Builder(CLIENT_ID, AuthenticationResponse.Type.TOKEN, REDIRECT_URI)
-                .setScopes(arrayOf("user-library-read app-remote-control"))
+        binding!!.button3!!.setOnClickListener { jsonParse() }
+        builder = AuthenticationRequest.Builder(
+            CLIENT_ID,
+            AuthenticationResponse.Type.TOKEN,
+            REDIRECT_URI
+        )
+            .setScopes(arrayOf("user-library-read app-remote-control"))
         request = builder!!.build()
         AuthenticationClient.openLoginActivity(this, REQUEST_CODE, request)
         supportActionBar!!.hide()
     }
 
     protected fun logOff() {
-
         AuthenticationClient.stopLoginActivity(this, REQUEST_CODE)
         startActivity(Intent(this, LoginMenu::class.java))
     }
@@ -87,8 +88,8 @@ class MyFavouritesTracks : AppCompatActivity() {
     private fun jsonParse() {
         val url2 = "https://api.spotify.com/"
         val retrofit = Retrofit.Builder().baseUrl(url2)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
         val jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi::class.java)
         val call = jsonPlaceHolderApi.getUserData(" Bearer " + myToken)
 
@@ -99,12 +100,16 @@ class MyFavouritesTracks : AppCompatActivity() {
                 val name_tracks = response.body()!!.items
                 val al_cardData = ArrayList<CardData>()
                 for (items in name_tracks) {
-                    val pattern = Pattern.compile("...........................................................................................................", Pattern.CASE_INSENSITIVE)
+                    val pattern = Pattern.compile(
+                        "...........................................................................................................",
+                        Pattern.CASE_INSENSITIVE
+                    )
                     val matcher = pattern.matcher(items.toString())
                     val matchFound = matcher.find()
                     if (matchFound) {
                         tag_matcher_group = matcher.group()
-                        new_item = items.toString().replace(matcher.group(), "").replace("[", "").replace("]", "")
+                        new_item = items.toString().replace(matcher.group(), "").replace("[", "")
+                            .replace("]", "")
                     }
                     bindingCard!!.playButton.tag = matcher.group()
                     al_cardData.add(CardData(new_item!!, tag_matcher_group!!))

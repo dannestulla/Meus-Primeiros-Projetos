@@ -9,7 +9,4 @@ public interface JsonPlaceHolderApi {
     @GET("v1/me/tracks?market=BR") //
     Call<MainPojo> getUserData(@Header("Authorization") String myToken);
 
-
-
-
 }

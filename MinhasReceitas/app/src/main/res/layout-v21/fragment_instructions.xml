@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:fillViewport="true"
-    tools:context=".view.InstructionsFragment">
+    tools:context=".presenter.view.InstructionsFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -30,31 +30,6 @@
             android:layout_marginBottom="27dp"
             android:contentDescription="@string/backbutton"
             android:src="@drawable/back" />
-
-        <ImageView
-            android:id="@+id/deliveritbutton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginStart="308dp"
-            android:layout_marginLeft="308dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginRight="30dp"
-            android:src="@drawable/hotelbell" />
-
-        <TextView
-            android:id="@+id/findrestaurant"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="200dp"
-            android:layout_marginLeft="270dp"
-            android:layout_marginTop="40dp"
-            android:fontFamily="@font/hellixblack"
-            android:text="@string/deliver_it"
-            android:textColor="@color/orange"
-            android:textSize="17sp" />
 
         <TextView
             android:id="@+id/recipetitle"

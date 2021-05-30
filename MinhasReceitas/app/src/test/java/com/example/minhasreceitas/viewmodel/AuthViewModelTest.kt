@@ -1,6 +1,6 @@
 package com.example.minhasreceitas.viewmodel
 
-import com.example.minhasreceitas.viewmodel.AuthViewModel.Companion.validadeRegistration
+import com.example.minhasreceitas.presenter.viewmodel.AuthViewModel.Companion.validadeRegistration
 import org.junit.Test
 import com.google.common.truth.Truth.assertThat
 

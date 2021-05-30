@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".view.MainActivity"
+    tools:context=".presenter.MainActivity"
     >
 
     <TextView
@@ -117,7 +117,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/login_fields_margin_botton"
         android:fontFamily="@font/hellixregular"
-        android:hint="@string/user_name"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/passwordfield"
         app:layout_constraintEnd_toEndOf="parent"
