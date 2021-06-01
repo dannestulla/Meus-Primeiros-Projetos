@@ -1,4 +1,4 @@
-package com.example.cifrafinder.views
+package com.example.cifrafinder.presenter
 
 import android.content.Context
 import android.content.Intent
@@ -20,8 +20,6 @@ open class MainActivity : AppCompatActivity() {
     lateinit var request: AuthenticationRequest
     lateinit var activityMainBinding: ActivityMainBinding
 
-
-
     companion object {
         var myToken: String? = null
         var context: Context? = null
@@ -32,13 +30,11 @@ open class MainActivity : AppCompatActivity() {
         MultiDex.install(this)
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         val view = activityMainBinding.root
-   
         setContentView(view)
         logInSpotify()
         activityMainBinding.button.setOnClickListener { SearchCifraGoogle().getArtistSong() }
         activityMainBinding.imageView.setOnClickListener { logInSpotify() }
         supportActionBar?.hide()
-
         context = applicationContext
     }
 
@@ -46,13 +42,13 @@ open class MainActivity : AppCompatActivity() {
         return context
     }
 
-   fun logInSpotify() {
+    fun logInSpotify() {
         builder = AuthenticationRequest.Builder(
-                CLIENT_ID,
-                AuthenticationResponse.Type.TOKEN,
-                REDIRECT_URI
+            CLIENT_ID,
+            AuthenticationResponse.Type.TOKEN,
+            REDIRECT_URI
         ).setScopes(
-                arrayOf("user-read-currently-playing")
+            arrayOf("user-read-currently-playing")
         )
         request = builder.build()
         AuthenticationClient.openLoginActivity(this, REQUEST_CODE, request)
@@ -60,8 +56,6 @@ open class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
         super.onActivityResult(requestCode, resultCode, intent)
-
-        // Check if result comes from the correct activity
         if (requestCode == REQUEST_CODE) {
             val response = AuthenticationClient.getResponse(resultCode, intent)
             when (response.type) {

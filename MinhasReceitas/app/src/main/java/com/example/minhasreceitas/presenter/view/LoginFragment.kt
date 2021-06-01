@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.minhasreceitas.R
 import com.example.minhasreceitas.databinding.FragmentLoginBinding
 import com.example.minhasreceitas.presenter.viewmodel.AuthViewModel
@@ -49,7 +50,7 @@ class LoginFragment : Fragment() {
 
         viewModel.fragmentDestination.observe(viewLifecycleOwner, {
             when (it) {
-                "loginToCuisine" -> navController.navigate(R.id.action_loginFragment_to_cuisineFragment)
+                "loginToCuisine" -> findNavController().navigate(R.id.action_loginFragment_to_cuisineFragment)
             }
         })
     }

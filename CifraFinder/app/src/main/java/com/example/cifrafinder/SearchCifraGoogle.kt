@@ -1,6 +1,5 @@
 package com.example.cifrafinder
 
-import android.app.Activity
 import android.content.Intent
 import android.util.Log
 import android.view.View
@@ -8,8 +7,8 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import com.example.cifrafinder.json.SpotifyJson
-import com.example.cifrafinder.views.MainActivity
-import com.example.cifrafinder.views.WebViewCifra
+import com.example.cifrafinder.presenter.MainActivity
+import com.example.cifrafinder.presenter.WebViewCifra
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
