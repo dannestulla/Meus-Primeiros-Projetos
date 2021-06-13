@@ -5,7 +5,7 @@ Next to each project's name are the topics learned. I used Android Studio to dev
 
 ## Lastest projects
 
-- **MikeBamb** (Clean Architecture, MVVM, QRcode reader) ⭐⭐⭐⭐</br>
+- [**MikeBamb**](https://github.com/Dannestulla/mikebamb) (Clean Architecture, MVVM, QRcode reader) ⭐⭐⭐⭐</br>
 _ Freelancer project in private mode, send me a message to have access to the project. App that helps to manage an ship's engine room.  
 
 - [**TracksBuddy**](https://github.com/Dannestulla/tracksbuddy) (Clean Architecture, MVVM) ⭐⭐⭐</br>
