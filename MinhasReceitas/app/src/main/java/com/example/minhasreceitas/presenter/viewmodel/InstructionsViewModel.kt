@@ -56,6 +56,8 @@ class InstructionsViewModel @Inject constructor(
         if (response2.isSuccessful) {
             val body = response2.body()!!.meals[0]
             val newData = ArrayList<Meal>()
+            if (currentMeal.favourite == null)
+            { currentMeal.favourite = "0"}
             newData.add(
                 Meal(
                     currentMeal.idMeal,

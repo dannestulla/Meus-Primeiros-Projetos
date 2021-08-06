@@ -1,7 +1,6 @@
 package com.example.minhasreceitas.presenter.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +8,7 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.minhasreceitas.R
 import com.example.minhasreceitas.data.remote.Meal
 import com.example.minhasreceitas.databinding.FragmentInstructionsBinding
@@ -39,22 +38,9 @@ class InstructionsFragment : Fragment() {
         viewModel.isLoaded.postValue(false)
         viewModel.getInstructions(currentMeal.idMeal)
         viewModel.checkIfFavourited()
-        val navController = Navigation.findNavController(view)
-
-        //DISPLAY ITEMS, VISIBILITY ON/OFF
         viewModel.isLoaded.observe(viewLifecycleOwner, {
             if (it == true) {
-                binding.apply {
-                    addtofavourites.isVisible = true
-                    progress.isVisible = false
-                    recipetitle.isVisible = true
-                    cuisinetype.isVisible = true
-                    instructionstext.isVisible = true
-                    instructionsfulltext.isVisible = true
-                    addtofavourites.isVisible = true
-                    recipeimage.isVisible = true
-                    textfavourite.isVisible = true
-                }
+                displayItemsOnScreen()
             }
         }
         )
@@ -91,7 +77,7 @@ class InstructionsFragment : Fragment() {
         }
 
         binding.instructionsbackbutton.setOnClickListener {
-            navController.navigate(R.id.action_descriptionFragment_to_recipeFragment)
+            findNavController().navigate(R.id.action_descriptionFragment_to_recipeFragment)
         }
 
         //CHECK IF IS IN FAVOURITES
@@ -104,11 +90,24 @@ class InstructionsFragment : Fragment() {
         })
     }
 
+    private fun displayItemsOnScreen() {
+        binding.apply {
+            addtofavourites.isVisible = true
+            progress.isVisible = false
+            recipetitle.isVisible = true
+            cuisinetype.isVisible = true
+            instructionstext.isVisible = true
+            instructionsfulltext.isVisible = true
+            addtofavourites.isVisible = true
+            recipeimage.isVisible = true
+            textfavourite.isVisible = true
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         viewModel.isLoaded.postValue(false)
-        currentMeal= Meal("","","","","","")
-        Log.d("Instructions", "Destroyed")
+        currentMeal = Meal("", "", "", "", "", "")
         _binding = null
     }
 }

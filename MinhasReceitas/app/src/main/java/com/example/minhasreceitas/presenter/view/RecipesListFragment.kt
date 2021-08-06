@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.MutableLiveData
-import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.VERTICAL
 import com.example.minhasreceitas.R
@@ -32,15 +32,20 @@ class RecipesListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val navController = Navigation.findNavController(view)
         binding.backbuttonrecipes.setOnClickListener {
-            navController.navigate(R.id.action_recipeFragment_to_cuisineFragment)
+            findNavController().navigate(R.id.action_recipeFragment_to_cuisineFragment)
         }
         binding.recyclerView.apply {
             adapter = viewModel.mAdapter
             layoutManager = LinearLayoutManager(context, VERTICAL, false)
         }
-        //TOGGLING FAVOURITE LIST
+        favouriteListSetup()
+
+        viewModel.recyclerViewLiveData.observe(viewLifecycleOwner,
+            { viewModel.mAdapter.submitList(it) })
+    }
+
+    private fun favouriteListSetup() {
         binding.imageView7.setOnClickListener {
             val listFavouritesButtonON = viewModel.favButtonRecipeList
             if (!listFavouritesButtonON) {
@@ -51,8 +56,6 @@ class RecipesListFragment : Fragment() {
                 it.setBackgroundResource(R.drawable.favoriteoff)
             }
         }
-        viewModel. recyclerViewLiveData.observe(viewLifecycleOwner,
-            { viewModel.mAdapter.submitList(it) })
     }
 
     override fun onDestroyView() {

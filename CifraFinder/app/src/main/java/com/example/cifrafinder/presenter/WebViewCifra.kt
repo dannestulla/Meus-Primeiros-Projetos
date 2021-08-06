@@ -20,9 +20,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class WebViewCifra : AppCompatActivity() {
-    lateinit var webView : WebView
-    private lateinit var refresh : View
-    private lateinit var search : String
+    lateinit var webView: WebView
+    private lateinit var refresh: View
+    private lateinit var search: String
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,40 +33,49 @@ class WebViewCifra : AppCompatActivity() {
         webView = findViewById(R.id.webview)
         refresh.setOnClickListener { SearchCifraGoogle().getArtistSong() }
 
-        search= intent.getStringExtra("search").toString()
+        search = intent.getStringExtra("search").toString()
         webView.webViewClient = WebViewClient()
         supportActionBar?.hide()
         searchBuilder()
 
     }
-    fun searchBuilder(){
-    SearchCifraGoogle.retrofit = Retrofit.Builder()
+
+    fun searchBuilder() {
+        SearchCifraGoogle.retrofit = Retrofit.Builder()
             .baseUrl("https://customsearch.googleapis.com")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-    val service = SearchCifraGoogle.retrofit.create(JsonAPI::class.java)
-    val call = SearchCifraGoogle.search?.let { service.getSearchResult("AIzaSyAqJekjg13XzbdgU3Xw4FCWzQK_84iW4qE","a4cf8ba5446f8f5ac", it)
-    }
+        val service = SearchCifraGoogle.retrofit.create(JsonAPI::class.java)
+        val call = SearchCifraGoogle.search?.let {
+            service.getSearchResult(
+                "AIzaSyAqJekjg13XzbdgU3Xw4FCWzQK_84iW4qE",
+                "a4cf8ba5446f8f5ac",
+                it
+            )
+        }
 
 
-    call!!.enqueue(object : Callback<SearchJson> {
-        override fun onResponse(call: Call<SearchJson>, response: Response<SearchJson>) {
-            try {
-                val searchUrl = response.body()!!.items[0].link
-                webView.loadUrl(searchUrl)
-            } catch (ex : Exception) {
-                Toast.makeText(applicationContext, "Música (${SearchCifraGoogle.search}) não encontrada no CifraClub ", Toast.LENGTH_LONG).show()
+        call!!.enqueue(object : Callback<SearchJson> {
+            override fun onResponse(call: Call<SearchJson>, response: Response<SearchJson>) {
+                try {
+                    val searchUrl = response.body()!!.items[0].link
+                    webView.loadUrl(searchUrl)
+                } catch (ex: Exception) {
+                    Toast.makeText(
+                        applicationContext,
+                        "Música (${SearchCifraGoogle.search}) não encontrada no CifraClub ",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+
+
+                Log.e("Endereço", SearchCifraGoogle.urlbar.toString())
             }
 
-
-            Log.e("Endereço", SearchCifraGoogle.urlbar.toString())
-        }
-        override fun onFailure(call: Call<SearchJson>, t: Throwable) {
-            Log.d("error", t.toString())
-        }
-    })
-}
-
-
+            override fun onFailure(call: Call<SearchJson>, t: Throwable) {
+                Log.d("error", t.toString())
+            }
+        })
+    }
 }
 

@@ -33,11 +33,10 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        navController = Navigation.findNavController(view)
         viewModel.auth = FirebaseAuth.getInstance()
         viewModel.auth = Firebase.auth
         binding.apply {
-            needtoregister.setOnClickListener { navController.navigate(R.id.action_loginFragment_to_registerFragment) }
+            needtoregister.setOnClickListener { findNavController().navigate(R.id.action_loginFragment_to_registerFragment) }
             loginbutton.setOnClickListener {
                 val password = password.text.toString()
                 val email = email.text.toString()

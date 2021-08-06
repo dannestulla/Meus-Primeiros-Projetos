@@ -60,6 +60,7 @@
                android:id="@+id/action_cuisineFragment_to_loginFragment"
                app:destination="@id/loginFragment"
                app:enterAnim="@anim/from_left"
+
                app:exitAnim="@anim/to_right"/>
        </fragment>
     <fragment

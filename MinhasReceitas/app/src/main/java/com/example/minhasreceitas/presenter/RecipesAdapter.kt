@@ -59,8 +59,5 @@ class RecipesAdapter(
             oldItem == newItem
     }
 
-    interface OnItemClickListener {
-
-    }
 }
 
