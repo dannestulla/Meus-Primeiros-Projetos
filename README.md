@@ -5,8 +5,14 @@ Next to each project's name are the topics learned. I used Android Studio to dev
 
 ## Lastest projects
 
+- [**MikeBamb**](https://github.com/Dannestulla/mikebamb) (Clean Architecture, MVVM, QRcode reader) ⭐⭐⭐⭐</br>
+_ Freelancer project in private mode, send me a message to have access to the project. App that helps to manage an ship's engine room.  
+
+- [**TracksBuddy**](https://github.com/Dannestulla/tracksbuddy) (Clean Architecture, MVVM) ⭐⭐⭐</br>
+██████▁▁▁▁▁▁ 50% Completed - Display liked tracks from Spotify and Youtube_
+
 - [**MyRecipes**](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/MinhasReceitas) (MVVM, Unit Test) ⭐⭐⭐</br>
-_**In Development** Searches recipes from multiple cuisines and shows a video how to make it. You can also order it from a nerby restaurant_
+_ Searches recipes from multiple cuisines and shows a video how to make it. You can also order it from a nerby restaurant_
 
 - **[NoticiasConcursos ](https://github.com/Dannestulla/AndroidStudioProjects/tree/main/NoticiasConcursos/app/src/main/java/com/example/noticiasconcursos)**(Room, MVVM, ViewModelFactory, Coroutines, View Binding)  ⭐⭐⭐</br>
 _Mobile app that is a conversion of a WordPress news page_
