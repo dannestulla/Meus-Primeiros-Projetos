@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/cifraMenuFragment">
+
+    <fragment
+        android:id="@+id/cifraMenuFragment"
+        android:name="com.example.cifrafinder.presenter.fragments.CifraMenuFragment"
+        android:label="CifraMenuFragment"
+        tools:layout="@+id/menuFragment"
+        >
+        <action
+            android:id="@+id/action_cifraMenuFragment_to_cifraWebFragment"
+            app:destination="@id/cifraWebFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cifraWebFragment"
+        android:name="com.example.cifrafinder.presenter.fragments.CifraWebFragment"
+        android:label="CifraWebFragment"
+        tools:layout="@+id/menuFragment"
+        />
+</navigation>

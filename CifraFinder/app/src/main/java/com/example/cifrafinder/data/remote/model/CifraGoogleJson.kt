@@ -1,10 +1,9 @@
-package com.example.cifrafinder.json
+package com.example.cifrafinder.data.remote.model
 
-data class SearchJson(
+data class GoogleJson(
     val items: List<VItems>,
 )
 
 data class VItems(
     val link: String,
 )
-

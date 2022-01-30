@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".CifraApplication"
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,7 +17,7 @@
         android:theme="@style/Theme.CifraFinder"
         tools:targetApi="m">
         <activity android:name=".presenter.WebViewCifra"></activity>
-        <activity android:name=".presenter.MainActivity">
+        <activity android:name=".CifraMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

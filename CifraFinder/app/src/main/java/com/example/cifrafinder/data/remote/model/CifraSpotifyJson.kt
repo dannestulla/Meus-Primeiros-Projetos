@@ -1,4 +1,4 @@
-package com.example.cifrafinder.json
+package com.example.cifrafinder.data.remote.model
 
 data class SpotifyJson(
     val item: Item,
@@ -12,5 +12,3 @@ data class Item(
 data class ArtistX(
     val name: String,
 )
-
-
