@@ -7,9 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.cifrafinder.CifraConstants.CLIENT_ID
-import com.example.cifrafinder.CifraConstants.REDIRECT_URI
+import androidx.navigation.fragment.findNavController
+import com.example.cifrafinder.CifraConstants
+import com.example.cifrafinder.CifraConstants.spotifyClientId
+import com.example.cifrafinder.CifraConstants.googleRedirectUri
 import com.example.cifrafinder.CifraConstants.REQUEST_CODE
+import com.example.cifrafinder.R
 import com.example.cifrafinder.databinding.FragmentMenuBinding
 import com.example.cifrafinder.presenter.viewModels.CifraMenuViewModel
 import com.spotify.sdk.android.authentication.AuthenticationClient
@@ -22,10 +25,7 @@ class CifraMenuFragment : Fragment() {
     private var _viewBinding: FragmentMenuBinding? = null
     private val viewBinding get() = _viewBinding!!
 
-    private val viewModel : CifraMenuViewModel by viewModel()
-
-    private lateinit var builder: AuthenticationRequest.Builder
-    private lateinit var request: AuthenticationRequest
+    private val viewModel: CifraMenuViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,12 +39,32 @@ class CifraMenuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         applyBinding()
+        setObservers()
         logInSpotify()
     }
 
+    private fun setObservers() {
+        viewModel.currentlyPlaying.observe(viewLifecycleOwner, {
+            if (it.isNotEmpty()) {
+                findNavController().navigate(R.id.action_cifraMenuFragment_to_cifraWebFragment, createBundle(it))
+            }
+        })
+    }
+
+    private fun createBundle(searchText: String): Bundle {
+        val bundle = Bundle()
+        bundle.putString(
+            CifraConstants.searchText, searchText)
+        return bundle
+    }
+
     private fun applyBinding() = with(viewBinding) {
-        startSearch.setOnClickListener { viewModel.getSongAndArtistName() }
-        spotifyLogin.setOnClickListener { logInSpotify() }
+        startSearchButton.setOnClickListener {
+            if (viewModel.spotifyToken.value?.isNotEmpty() == true) {
+                viewModel.getCurrentlyPlaying()
+            }
+            spotifyLogin.setOnClickListener { logInSpotify() }
+        }
     }
 
     override fun onDestroyView() {
@@ -53,14 +73,13 @@ class CifraMenuFragment : Fragment() {
     }
 
     private fun logInSpotify() {
-        builder = AuthenticationRequest.Builder(
-            CLIENT_ID,
+        val request = AuthenticationRequest.Builder(
+            spotifyClientId,
             AuthenticationResponse.Type.TOKEN,
-            REDIRECT_URI
+            googleRedirectUri
         ).setScopes(
             arrayOf("user-read-currently-playing")
-        )
-        request = builder.build()
+        ).build()
         AuthenticationClient.openLoginActivity(activity, REQUEST_CODE, request)
     }
 
@@ -69,8 +88,8 @@ class CifraMenuFragment : Fragment() {
         if (requestCode == REQUEST_CODE) {
             val response = AuthenticationClient.getResponse(resultCode, intent)
             when (response.type) {
-                AuthenticationResponse.Type.TOKEN -> viewModel.myToken = response.accessToken
-                AuthenticationResponse.Type.ERROR -> Log.e("Token Error", response.error)
+                AuthenticationResponse.Type.TOKEN -> viewModel.setSpotifyToken(response.accessToken)
+                AuthenticationResponse.Type.ERROR -> Log.e(javaClass.simpleName, response.error)
                 else -> {}
             }
         }

@@ -19,6 +19,6 @@
         android:id="@+id/cifraWebFragment"
         android:name="com.example.cifrafinder.presenter.fragments.CifraWebFragment"
         android:label="CifraWebFragment"
-        tools:layout="@+id/menuFragment"
+        tools:layout="@+id/webFragment"
         />
 </navigation>

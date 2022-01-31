@@ -33,7 +33,7 @@ object CifraDI {
             get<Retrofit>().create(CifraAPIService::class.java)
         }
         single{
-            retrofit(CifraConstants.googleSearchEndPoint)
+            retrofit(CifraConstants.googleSearchBaseUrl)
         }
     }
 

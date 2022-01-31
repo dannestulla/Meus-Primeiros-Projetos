@@ -1,6 +1,7 @@
 package com.example.cifrafinder.presenter.viewModels
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,25 +13,34 @@ import retrofit2.Response
 class CifraMenuViewModel(
     private val cifraUseCase: CifraUseCase
 ) : ViewModel() {
-    var myToken: String? = null
 
-    private var currentlyPlaying = MutableLiveData<String>()
+    private var _spotifyToken = MutableLiveData<String>()
+    var spotifyToken : LiveData<String> = _spotifyToken
 
-    fun getSongAndArtistName(spotifyToken : String) {
+    private var _currentlyPlaying = MutableLiveData<String>()
+    var currentlyPlaying : LiveData<String> = _currentlyPlaying
+
+    fun getCurrentlyPlaying() {
         viewModelScope.launch {
-            manageResponse(cifraUseCase.getSongAndArtistName(spotifyToken))
+            _spotifyToken.value?.let {
+                manageSpotifyResponse(cifraUseCase.getCurrentlyPlaying(it))
+            }
         }
     }
 
-    private fun manageResponse(spotifyResponse: Response<SpotifyJson>) {
-        return if (spotifyResponse.isSuccessful) {
+    private fun manageSpotifyResponse(spotifyResponse: Response<SpotifyJson>) {
+        if (spotifyResponse.isSuccessful) {
             val stringToSearch = with (spotifyResponse.body()?.item) {
                 "${this?.name?.first()} ${this?.artists?.first()}"
             }
-            currentlyPlaying.postValue(stringToSearch)
+            _currentlyPlaying.postValue(stringToSearch)
         } else {
             Log.e(javaClass.simpleName, spotifyResponse.errorBody().toString())
-            currentlyPlaying.postValue("")
+            _currentlyPlaying.postValue("")
         }
+    }
+
+    fun setSpotifyToken(accessToken: String) {
+        _spotifyToken.postValue(accessToken)
     }
 }

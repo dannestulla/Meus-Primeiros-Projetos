@@ -16,8 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CifraFinder"
         tools:targetApi="m">
-        <activity android:name=".presenter.WebViewCifra"></activity>
-        <activity android:name=".CifraMainActivity">
+        <activity android:name=".CifraMainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

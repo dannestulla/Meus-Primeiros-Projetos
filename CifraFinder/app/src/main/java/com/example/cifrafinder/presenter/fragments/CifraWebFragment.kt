@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
+import com.example.cifrafinder.CifraConstants
 import com.example.cifrafinder.databinding.FragmentWebViewBinding
 import com.example.cifrafinder.presenter.viewModels.CifraWebViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -16,7 +17,7 @@ class CifraWebFragment : Fragment() {
     private var _viewBinding: FragmentWebViewBinding? = null
     private val viewBinding get() = _viewBinding!!
 
-    private val viewModel : CifraWebViewModel by viewModel()
+    private val viewModel: CifraWebViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,7 +32,12 @@ class CifraWebFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         applyBinding()
         setSearchObserver()
-        viewModel.getSongUrl()
+        getSongUrl()
+    }
+
+    private fun getSongUrl() {
+        val searchText = this.arguments?.getString(CifraConstants.searchText)
+        searchText?.let { viewModel.getSongUrl(it) }
     }
 
     private fun setSearchObserver() =
@@ -42,7 +48,7 @@ class CifraWebFragment : Fragment() {
         })
 
     private fun applyBinding() = with(viewBinding) {
-        refreshButton.setOnClickListener {  }
+        refreshButton.setOnClickListener { webView.reload() }
         webView.webViewClient = WebViewClient()
     }
 

@@ -8,21 +8,20 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="348dp"
-        android:layout_height="49dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Buscar no Cifra Club!"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="27dp"
-        app:layout_constraintBottom_toTopOf="@+id/startSearch"
+        app:layout_constraintBottom_toTopOf="@+id/startSearchButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/startSearch"
+        android:id="@+id/startSearchButton"
         android:layout_width="165dp"
         android:layout_height="59dp"
         android:text="Go!"
@@ -36,12 +35,11 @@
     <ImageView
         android:id="@+id/spotifyLogin"
         android:layout_width="80dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="24dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/startSearch"
+        app:layout_constraintTop_toBottomOf="@+id/startSearchButton"
         app:srcCompat="@drawable/spotify_icon_png_15398" />
 
 
